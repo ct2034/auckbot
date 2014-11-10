@@ -4,7 +4,7 @@
 	<ProjectInfo>
 		<Path>C:\Users\useradmin\Documents\GitHub\auckbot\twincat\phase 8a.pro</Path>
 		<IsLibrary>false</IsLibrary>
-		<ChangeDate>2014-11-10T09:32:53</ChangeDate>
+		<ChangeDate>2014-11-10T17:18:09</ChangeDate>
 		<Library>
 			<Name>TcpIp.lib</Name>
 			<Path>c:\users\useradmin\documents\github\auckbot\twincat\lib\TcpIp.lib</Path>
@@ -23673,7 +23673,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="104A7C11" Crc32="1251871189" LastChange="2014-10-21T14:53:24">MAIN</Name>
+			<Name Decoration="104A7C11" Crc32="0814909622" LastChange="2014-11-10T17:18:05">MAIN</Name>
 			<PrgInfo>
 				<CodeIndex>1125</CodeIndex>
 				<ActionInfo>
