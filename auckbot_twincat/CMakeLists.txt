@@ -84,7 +84,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES auckbot_twincat
-#  CATKIN_DEPENDS nav_msgs roscpp rospy std_msgs tf
+   CATKIN_DEPENDS nav_msgs roscpp rospy std_msgs tf
 #  DEPENDS system_lib
 )
 
@@ -105,16 +105,27 @@ include_directories(
 # )
 
 ## Declare a cpp executable
-# add_executable(auckbot_twincat_node src/auckbot_twincat_node.cpp)
+#add_executable(ConnectionTest src/ConnectionTest.cpp)
+#add_executable(moveRobot src/moveRobot.cpp)
+add_executable(TwinCatPlcSetTwist src/TwinCatPlcSetTwist.cpp)
+add_executable(TwinCatPlcGetOdom src/TwinCatPlcGetOdom.cpp)
+
+
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 # add_dependencies(auckbot_twincat_node auckbot_twincat_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(auckbot_twincat_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(
+  TwinCatPlcSetTwist
+  ${catkin_LIBRARIES}
+)
+
+target_link_libraries(
+  TwinCatPlcGetOdom
+  ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##
