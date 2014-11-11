@@ -9,6 +9,8 @@
  *   Network Programming Linux Socket Part 11: TCP Client-Server Code Sample
  * - base_controller.cpp
  * 	 ROS Book
+ *
+ * Small Sdditions by Christian Henkel - post@henkelchristian.de
  */
 
 #include "ros/ros.h"
@@ -119,6 +121,11 @@ int main(int argc , char **argv)
 	ros::init(argc, argv, "TwinCatPlcSetTwist");
 	ros::NodeHandle n;
 	ros::Subscriber cmd_vel_sub = n.subscribe("cmd_vel", 10, cmd_velCallback);
+    
+  // Some waiting "intelligence"
+  int seconds = 1;
+  int waittime = 0;
+  int display = 30;
 
 	//Create socket
 	sock = socket(AF_INET , SOCK_STREAM , 0);
@@ -140,12 +147,16 @@ int main(int argc , char **argv)
 	server.sin_port = htons( 711 );
 
 	//Connect to remote server
-	if (connect(sock , (struct sockaddr *)&server , sizeof(server)) < 0)
+	while (connect(sock , (struct sockaddr *)&server , sizeof(server)) < 0)
 	{
-		perror("connect failed. Error\n");
-		return 1;
-	}
-	puts("Connected\n");
+    ros::spinOnce();
+    ros::Duration(seconds).sleep();
+    waittime += 1;
+    if (waittime%display == 0) {
+      printf("waited for %d seconds\n", waittime);     
+    }
+  }
+  printf("Connected after %d second(s)\n", waittime);     
 
 	ros::Rate loop_rate(1);
 	while(ros::ok())
