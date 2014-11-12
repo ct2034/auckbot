@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<launch>   
+    <node pkg="auckbot_twincat" type="TwinCatPlcGetOdom" name="twincat_get_odom">
+    	<remap from="odom" to="rob_odom" />
+    </node>
+    <node pkg="auckbot_twincat" type="TwinCatPlcSetTwist" name="twincat_set_twist" output="screen">
+    </node>
+</launch>
