@@ -29,6 +29,7 @@
 
 # CH ...
 *~
+*.save
 
 # for now ...
 openni_*/*
