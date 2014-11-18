@@ -22,12 +22,13 @@
 #include<sys/socket.h>    //socket
 #include<arpa/inet.h> //inet_addr
 
-
 // Publishing Odometry Information over ROS
 #include <tf/transform_broadcaster.h>
 #include <nav_msgs/Odometry.h>
 
 #define MMPM 1000
+#define MAX_ACC 100
+#define PI 3.14159265359
 
 int main(int argc , char **argv)
 {
@@ -87,9 +88,15 @@ int main(int argc , char **argv)
 	ros::Rate r(1.0);
 
 	while(n.ok()){
-
+		//init
 		ros::spinOnce();               // check for incoming messages
-		current_time = ros::Time::now();
+
+		double robotPosX = 0;
+		double robotPosY = 0;
+		double robotPosTheta = 0;
+		double robotVelX = 0;
+		double robotVelY = 0;
+		double robotVelTheta = 0;
 
 		//receive odometry message from TwinCAT
 		int totalcnt = 0;
@@ -131,12 +138,19 @@ int main(int argc , char **argv)
 		char robotVelY_signStr[2] = {twinCatMessage[46], '\0'};
 		char robotVelTheta_signStr[2] = {twinCatMessage[47], '\0'};
 
-		double robotPosX = (strtod(robotPosXStr, NULL))/MMPM;
-		double robotPosY = (strtod(robotPosYStr, NULL))/MMPM;
-		double robotPosTheta = strtod(robotPosThetaStr, NULL)/10;
-		double robotVelX = (strtod(robotVelXStr, NULL))/MMPM;
-		double robotVelY = (strtod(robotVelYStr, NULL))/MMPM;
-		double robotVelTheta = strtod(robotVelThetaStr, NULL)/10;
+		double oldRobotPosX = robotPosX;
+		double oldRobotPosY = robotPosY;
+		double oldRobotPosTheta = robotPosTheta;
+		double oldRobotVelX = robotVelX;
+		double oldRobotVelY = robotVelY;
+		double oldRobotVelTheta = robotVelTheta;
+
+		robotPosX = (strtod(robotPosXStr, NULL))/MMPM;
+		robotPosY = (strtod(robotPosYStr, NULL))/MMPM;
+		robotPosTheta = strtod(robotPosThetaStr, NULL)/10;
+		robotVelX = (strtod(robotVelXStr, NULL))/MMPM;
+		robotVelY = (strtod(robotVelYStr, NULL))/MMPM;
+		robotVelTheta = strtod(robotVelThetaStr, NULL)/10;
 
 		double robotPosX_sign = strtod(robotPosX_signStr, NULL);
 		double robotPosY_sign = strtod(robotPosY_signStr, NULL);
@@ -173,6 +187,7 @@ int main(int argc , char **argv)
 		nav_msgs::Odometry odom;
 		odom.header.stamp = current_time;
 		odom.header.frame_id = "odom";
+		odom.child_frame_id = "base_link";
 
 		//set the position
 		odom.pose.pose.position.x = robotPosX;
@@ -180,18 +195,32 @@ int main(int argc , char **argv)
 		odom.pose.pose.position.z = 0.0;
 		odom.pose.pose.orientation = odom_quat;
 
-		//set the velocity
-		odom.child_frame_id = "base_link";
-		odom.twist.twist.linear.x = robotVelX;
-		odom.twist.twist.linear.y = robotVelY;
-		odom.twist.twist.angular.z = robotVelTheta;
+		bool artSpeed = true; // TODO: Decide this based on a sanity check of the acceleration
+
+		if(artSpeed) {
+			//calculate artificial speed
+			double duration = current_time.toSec() - last_time.toSec();
+			odom.twist.twist.linear.x = (robotPosX - oldRobotPosX) / duration;
+			odom.twist.twist.linear.y = (robotPosY - oldRobotPosY) / duration;
+
+			double diff = robotPosTheta - oldRobotPosTheta;
+			if (diff > 2*PI) diff -= 2*PI;
+			odom.twist.twist.angular.z = diff / duration;
+		}
+		else
+		{
+			//set the velocity from TwinCat
+			odom.twist.twist.linear.x = robotVelX;
+			odom.twist.twist.linear.y = robotVelY;
+			odom.twist.twist.angular.z = robotVelTheta;
+		}
 
 		//publish the message
 		odom_pub.publish(odom);
 		printf("...Odometry published. %f %f %f %f %f %f\n", robotPosX, robotPosY, robotPosTheta, robotVelX, robotVelY, robotVelTheta);
 
 		last_time = current_time;
-		//r.sleep();
+		r.sleep();
 	}
 
 }
