@@ -32,8 +32,8 @@ struct sockaddr_in server;
 // Subscribe Twist Information in ROS
 void cmd_velCallback(const geometry_msgs::Twist &twist)
 {
-	double linVelX = twist.linear.x;
-	double linVelY = twist.linear.y;
+	double linVelX = -twist.linear.x;
+	double linVelY = -twist.linear.y;
 	double linVelZ = 0; // twist.linear.z;
 
 	double angVelX = 0; // twist.angular.x;

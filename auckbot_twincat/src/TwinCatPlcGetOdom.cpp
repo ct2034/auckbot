@@ -10,7 +10,7 @@
  * - http://wiki.ros.org/navigation/Tutorials/RobotSetup/Odom
  *   Publishing Odometry Information over ROS
  *
- * Small Sdditions by Christian Henkel - post@henkelchristian.de
+ * Small additions by Christian Henkel - post@henkelchristian.de
  */
 
 #include "ros/ros.h"
@@ -22,11 +22,13 @@
 #include<sys/socket.h>    //socket
 #include<arpa/inet.h> //inet_addr
 
-
 // Publishing Odometry Information over ROS
 #include <tf/transform_broadcaster.h>
 #include <nav_msgs/Odometry.h>
 
+#define MMPM 1000
+#define MAX_ACC 100
+#define PI 3.14159265359
 
 int main(int argc , char **argv)
 {
@@ -36,7 +38,6 @@ int main(int argc , char **argv)
 
 	ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 50);
 	tf::TransformBroadcaster odom_broadcaster;
-
 
 	// TCP/IP Connection - variables
     int sock, read_size;
@@ -78,17 +79,6 @@ int main(int argc , char **argv)
     }
     printf("Connected after %d second(s)\n", waittime);     
 
-
-	// robot start position -> regarding to "odom" coordinate frame
-//	double x = 0.0;
-//	double y = 0.0;
-//	double th = 0.0;
-//
-//	double vx = 0.1;
-//	double vy = -0.1;
-//	double vth = 0.1;
-
-
 	ros::Time current_time, last_time;
 	current_time = ros::Time::now();
 	last_time = ros::Time::now();
@@ -98,90 +88,84 @@ int main(int argc , char **argv)
 	ros::Rate r(1.0);
 
 	while(n.ok()){
-
+		//init
 		ros::spinOnce();               // check for incoming messages
-		current_time = ros::Time::now();
+
+		double robotPosX = 0;
+		double robotPosY = 0;
+		double robotPosTheta = 0;
+		double robotVelX = 0;
+		double robotVelY = 0;
+		double robotVelTheta = 0;
 
 		//receive odometry message from TwinCAT
-	     int totalcnt = 0;
-	     int BufferLength = 49;
-	     int rc;
+		int totalcnt = 0;
+		int BufferLength = 49;
+		int rc;
 
-	     while(totalcnt < BufferLength)
-	     {
-	     	rc = read(sock, &twinCatMessage[totalcnt], BufferLength-totalcnt);
-	     	if(rc < 0)
-	     	{
-	     		puts("FAULT\n");
-	     		perror("Client-read() error");
-	     		close(sock);
-	     		exit(-1);
-	     	}
-	     	else if (rc == 0)
-	     	{
-	     		puts("FAULT\n");
-	     		printf("Server program has issued a close()\n");
-	     		close(sock);
-	     		exit(-1);
-	     	}
-	     	else
-	     		totalcnt += rc;
-	     }
+		while(totalcnt < BufferLength)
+		{
+		rc = read(sock, &twinCatMessage[totalcnt], BufferLength-totalcnt);
+		if(rc < 0)
+		{
+			puts("FAULT\n");
+			perror("Client-read() error");
+			close(sock);
+			exit(-1);
+		}
+		else if (rc == 0)
+		{
+			puts("FAULT\n");
+			printf("Server program has issued a close()\n");
+			close(sock);
+			exit(-1);
+		}
+		else
+			totalcnt += rc;
+		}
 
-	     char robotPosXStr[7] = {twinCatMessage[0], twinCatMessage[1], twinCatMessage[2], twinCatMessage[3], twinCatMessage[4], twinCatMessage[5], '\0'};
-	     char robotPosYStr[7] = {twinCatMessage[7], twinCatMessage[8], twinCatMessage[9], twinCatMessage[10], twinCatMessage[11], twinCatMessage[12], '\0'};
-	     char robotPosThetaStr[7] = {twinCatMessage[14], twinCatMessage[15], twinCatMessage[16], twinCatMessage[17], twinCatMessage[18], twinCatMessage[19], '\0'};
-	     char robotVelXStr[7] = {twinCatMessage[21], twinCatMessage[22], twinCatMessage[23], twinCatMessage[24], twinCatMessage[25], twinCatMessage[26], '\0'};
-	     char robotVelYStr[7] = {twinCatMessage[28], twinCatMessage[29], twinCatMessage[30], twinCatMessage[31], twinCatMessage[32], twinCatMessage[33], '\0'};
-	     char robotVelThetaStr[7] = {twinCatMessage[35], twinCatMessage[36], twinCatMessage[37], twinCatMessage[38], twinCatMessage[39], twinCatMessage[40], '\0'};
+		char robotPosXStr[7] = {twinCatMessage[0], twinCatMessage[1], twinCatMessage[2], twinCatMessage[3], twinCatMessage[4], twinCatMessage[5], '\0'};
+		char robotPosYStr[7] = {twinCatMessage[7], twinCatMessage[8], twinCatMessage[9], twinCatMessage[10], twinCatMessage[11], twinCatMessage[12], '\0'};
+		char robotPosThetaStr[7] = {twinCatMessage[14], twinCatMessage[15], twinCatMessage[16], twinCatMessage[17], twinCatMessage[18], twinCatMessage[19], '\0'};
+		char robotVelXStr[7] = {twinCatMessage[21], twinCatMessage[22], twinCatMessage[23], twinCatMessage[24], twinCatMessage[25], twinCatMessage[26], '\0'};
+		char robotVelYStr[7] = {twinCatMessage[28], twinCatMessage[29], twinCatMessage[30], twinCatMessage[31], twinCatMessage[32], twinCatMessage[33], '\0'};
+		char robotVelThetaStr[7] = {twinCatMessage[35], twinCatMessage[36], twinCatMessage[37], twinCatMessage[38], twinCatMessage[39], twinCatMessage[40], '\0'};
 
-	     char robotPosX_signStr[2] = {twinCatMessage[42], '\0'};
-	     char robotPosY_signStr[2] = {twinCatMessage[43], '\0'};
-	     char robotPosTheta_signStr[2] = {twinCatMessage[44], '\0'};
-	     char robotVelX_signStr[2] = {twinCatMessage[45], '\0'};
-	     char robotVelY_signStr[2] = {twinCatMessage[46], '\0'};
-	     char robotVelTheta_signStr[2] = {twinCatMessage[47], '\0'};
+		char robotPosX_signStr[2] = {twinCatMessage[42], '\0'};
+		char robotPosY_signStr[2] = {twinCatMessage[43], '\0'};
+		char robotPosTheta_signStr[2] = {twinCatMessage[44], '\0'};
+		char robotVelX_signStr[2] = {twinCatMessage[45], '\0'};
+		char robotVelY_signStr[2] = {twinCatMessage[46], '\0'};
+		char robotVelTheta_signStr[2] = {twinCatMessage[47], '\0'};
 
-	     double robotPosX = (strtod(robotPosXStr, NULL))/1000;
-	     double robotPosY = (strtod(robotPosYStr, NULL))/1000;
-	     double robotPosTheta = strtod(robotPosThetaStr, NULL)/10;
-	     double robotVelX = (strtod(robotVelXStr, NULL))/1000;
-	     double robotVelY = (strtod(robotVelYStr, NULL))/1000;
-	     double robotVelTheta = strtod(robotVelThetaStr, NULL)/10;
+		double oldRobotPosX = robotPosX;
+		double oldRobotPosY = robotPosY;
+		double oldRobotPosTheta = robotPosTheta;
+		double oldRobotVelX = robotVelX;
+		double oldRobotVelY = robotVelY;
+		double oldRobotVelTheta = robotVelTheta;
 
-	     double robotPosX_sign = strtod(robotPosX_signStr, NULL);
-	     double robotPosY_sign = strtod(robotPosY_signStr, NULL);
-	     double robotPosTheta_sign = strtod(robotPosTheta_signStr, NULL);
-	     double robotVelX_sign = strtod(robotVelX_signStr, NULL);
-	     double robotVelY_sign = strtod(robotVelY_signStr, NULL);
-	     double robotVelTheta_sign = strtod(robotVelTheta_signStr, NULL);
+		robotPosX = (strtod(robotPosXStr, NULL))/MMPM;
+		robotPosY = (strtod(robotPosYStr, NULL))/MMPM;
+		robotPosTheta = strtod(robotPosThetaStr, NULL)/10;
+		robotVelX = (strtod(robotVelXStr, NULL))/MMPM;
+		robotVelY = (strtod(robotVelYStr, NULL))/MMPM;
+		robotVelTheta = strtod(robotVelThetaStr, NULL)/10;
 
-	     if(robotPosX_sign == 1)
-	     	     	{
-	    	 	 	 	 robotPosX = robotPosX*(-1);
-	     	     	}
-	     if(robotPosY_sign == 1)
-	     	     	{
-	    	 robotPosY = robotPosY*(-1);
-	     	     	}
-	     if(robotPosTheta_sign == 1)
-	     	     	{
-	    	 robotPosTheta = robotPosTheta*(-1);
-	     	     	}
-	     if(robotVelX_sign == 1)
-	     	     	{
-	    	 robotVelX = robotVelX*(-1);
-	     	     	}
-	     if(robotVelY_sign == 1)
-	     	     	{
-	    	 robotVelY = robotVelY*(-1);
-	     	     	}
-	     if(robotVelTheta_sign == 1)
-	     	     	{
-	    	 robotVelTheta = robotVelTheta*(-1);
-	     	     	}
+		double robotPosX_sign = strtod(robotPosX_signStr, NULL);
+		double robotPosY_sign = strtod(robotPosY_signStr, NULL);
+		double robotPosTheta_sign = strtod(robotPosTheta_signStr, NULL);
+		double robotVelX_sign = strtod(robotVelX_signStr, NULL);
+		double robotVelY_sign = strtod(robotVelY_signStr, NULL);
+		double robotVelTheta_sign = strtod(robotVelTheta_signStr, NULL);
 
-
+		if(robotPosX_sign == 1) robotPosX = robotPosX*(-1);
+		if(robotPosY_sign == 1) robotPosY = robotPosY*(-1);
+		if(robotPosTheta_sign == 1) robotPosTheta = robotPosTheta*(-1);
+		if(robotVelX_sign == 1) robotVelX = robotVelX*(-1);
+		if(robotVelY_sign == 1) robotVelY = robotVelY*(-1);
+		if(robotVelTheta_sign == 1) robotVelTheta = robotVelTheta*(-1);
+			 	
 		//since all odometry is 6DOF we'll need a quaternion created from yaw
 		geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(robotPosTheta);
 
@@ -203,6 +187,7 @@ int main(int argc , char **argv)
 		nav_msgs::Odometry odom;
 		odom.header.stamp = current_time;
 		odom.header.frame_id = "odom";
+		odom.child_frame_id = "base_link";
 
 		//set the position
 		odom.pose.pose.position.x = robotPosX;
@@ -210,18 +195,32 @@ int main(int argc , char **argv)
 		odom.pose.pose.position.z = 0.0;
 		odom.pose.pose.orientation = odom_quat;
 
-		//set the velocity
-		odom.child_frame_id = "base_link";
-		odom.twist.twist.linear.x = robotVelX;
-		odom.twist.twist.linear.y = robotVelY;
-		odom.twist.twist.angular.z = robotVelTheta;
+		bool artSpeed = true; // TODO: Decide this based on a sanity check of the acceleration
+
+		if(artSpeed) {
+			//calculate artificial speed
+			double duration = current_time.toSec() - last_time.toSec();
+			odom.twist.twist.linear.x = (robotPosX - oldRobotPosX) / duration;
+			odom.twist.twist.linear.y = (robotPosY - oldRobotPosY) / duration;
+
+			double diff = robotPosTheta - oldRobotPosTheta;
+			if (diff > 2*PI) diff -= 2*PI;
+			odom.twist.twist.angular.z = diff / duration;
+		}
+		else
+		{
+			//set the velocity from TwinCat
+			odom.twist.twist.linear.x = robotVelX;
+			odom.twist.twist.linear.y = robotVelY;
+			odom.twist.twist.angular.z = robotVelTheta;
+		}
 
 		//publish the message
 		odom_pub.publish(odom);
-		printf("...Odometry published. RobotPosX = %f , RobotPosY = %f , RobotPosTheta = %f, RobotVelX = %f , RobotVelY = %f , RobotVelTheta = %f\n\n", robotPosX, robotPosY, robotPosTheta, robotVelX, robotVelY, robotVelTheta);
+		printf("...Odometry published. %f %f %f %f %f %f\n", robotPosX, robotPosY, robotPosTheta, robotVelX, robotVelY, robotVelTheta);
 
 		last_time = current_time;
-		//r.sleep();
+		r.sleep();
 	}
 
 }
