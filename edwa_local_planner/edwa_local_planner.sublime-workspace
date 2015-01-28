@@ -435,7 +435,7 @@
 			"file": "/home/ch/ros/sim_ws/src/navigation/global_planner/src/planner_core.cpp",
 			"settings":
 			{
-				"buffer_size": 16611,
+				"buffer_size": 15923,
 				"line_ending": "Unix"
 			}
 		},
@@ -992,15 +992,15 @@
 					"file": "/home/ch/ros/sim_ws/src/navigation/global_planner/src/planner_core.cpp",
 					"settings":
 					{
-						"buffer_size": 16611,
+						"buffer_size": 15923,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2476,
-								2476
+								0,
+								0
 							]
 						],
 						"settings":

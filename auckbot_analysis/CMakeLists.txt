@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(auckbot_analysis)
 
 #set(MongoClient_DIR "$HOME/mongo-client-install")
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/auckbot_sim/auckbot_analysis/")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/auckbot/auckbot_analysis/")
 
 MESSAGE( ">> CMAKE_MODULE_PATH: " ${CMAKE_MODULE_PATH} )
 
