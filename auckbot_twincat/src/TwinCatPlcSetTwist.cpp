@@ -21,7 +21,7 @@
 using namespace std;
 
 // TCP/IP Connection
-#include<stdio.h> //printf
+//#include<stdio.h> //printf
 #include<string.h>    //strlen
 #include<sys/socket.h>    //socket
 #include<arpa/inet.h> //inet_addr
@@ -113,7 +113,7 @@ void cmd_velCallback(const geometry_msgs::Twist &twist)
 		puts("Send failed\n");
 	}
 
-	printf("> sent to TwinCat: velWheel1 = %.2f , ..2 = %.2f , ..3 = %.2f , ..4 = %.2f \n", velWheel1/1000, velWheel2/1000, velWheel3/1000, velWheel4/1000);
+	ROS_INFO("> sent to TwinCat: velWheel1 = %.2f , ..2 = %.2f , ..3 = %.2f , ..4 = %.2f \n", velWheel1, velWheel2, velWheel3, velWheel4);
 }
 
 int main(int argc , char **argv)
@@ -131,7 +131,7 @@ int main(int argc , char **argv)
 	sock = socket(AF_INET , SOCK_STREAM , 0);
 	if (sock == -1)
 	{
-		printf("Could not create socket\n");
+		ROS_INFO("Could not create socket\n");
 	}
 	puts("Socket created\n");
 
@@ -153,10 +153,10 @@ int main(int argc , char **argv)
     ros::Duration(seconds).sleep();
     waittime += 1;
     if (waittime%display == 0) {
-      printf("waited for %d seconds\n", waittime);     
+      ROS_INFO("waited for %d seconds\n", waittime);     
     }
   }
-  printf("Connected after %d second(s)\n", waittime);     
+  ROS_INFO("Connected after %d second(s)\n", waittime);     
 
 	ros::Rate loop_rate(1);
 	while(ros::ok())
