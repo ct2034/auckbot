@@ -1,0 +1,1111 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"EDWA",
+				"EDWAPlanner"
+			],
+			[
+				"E",
+				"E_traj"
+			],
+			[
+				"vel",
+				"vel_mean"
+			],
+			[
+				"the",
+				"theta_"
+			],
+			[
+				"ene",
+				"energy_costs_"
+			],
+			[
+				"new",
+				"new_set_"
+			],
+			[
+				"base",
+				"par_base_local_planner"
+			],
+			[
+				"els",
+				"elseif	elseif"
+			],
+			[
+				"con",
+				"con_rule"
+			],
+			[
+				"gr",
+				"grad"
+			],
+			[
+				"las",
+				"lastacc"
+			],
+			[
+				"a",
+				"accelerations"
+			],
+			[
+				"bu",
+				"bufferAcceleration"
+			],
+			[
+				"buffe",
+				"bufferAcceleration"
+			],
+			[
+				"cur",
+				"currents"
+			],
+			[
+				"velo",
+				"velocitys"
+			],
+			[
+				"curr",
+				"currents"
+			],
+			[
+				"tim",
+				"timerec"
+			],
+			[
+				"mot",
+				"motor_4"
+			],
+			[
+				"mo",
+				"motor_3"
+			],
+			[
+				"last",
+				"lastval"
+			],
+			[
+				"ma",
+				"maxWaiting"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"buf",
+				"bufferCurrents"
+			],
+			[
+				"buff",
+				"buffer"
+			],
+			[
+				"l",
+				"linearize"
+			],
+			[
+				"poin",
+				"point"
+			],
+			[
+				"po",
+				"pose"
+			],
+			[
+				"RO",
+				"ROS_INFO"
+			],
+			[
+				"q",
+				"q_new"
+			],
+			[
+				"v",
+				"v"
+			],
+			[
+				"m",
+				"min_radius"
+			],
+			[
+				"Po",
+				"Point_2"
+			],
+			[
+				"ge",
+				"geometry_msgs"
+			],
+			[
+				"s",
+				"s"
+			],
+			[
+				"ROS",
+				"ROS_INFO"
+			],
+			[
+				"nav",
+				"nav_msgs"
+			],
+			[
+				"push",
+				"push_back"
+			],
+			[
+				"_",
+				"_msg"
+			],
+			[
+				"path",
+				"path_optimizer"
+			],
+			[
+				"p",
+				"publisher"
+			],
+			[
+				"cle",
+				"clearPath"
+			],
+			[
+				"add",
+				"addPose"
+			],
+			[
+				"pa",
+				"path"
+			],
+			[
+				"st",
+				"std"
+			],
+			[
+				"ro",
+				"ROS_INFO"
+			],
+			[
+				"Pa",
+				"PathOptimizer"
+			],
+			[
+				"num",
+				"num_users"
+			],
+			[
+				"X",
+				"X_grad"
+			],
+			[
+				"met",
+				"metricListener"
+			],
+			[
+				"STR",
+				"STRL_DESC"
+			],
+			[
+				"y",
+				"y"
+			],
+			[
+				"NO_",
+				"NO_GOALS"
+			],
+			[
+				"N",
+				"NO_TRIPS_P_CONFIG"
+			],
+			[
+				"init",
+				"initp"
+			],
+			[
+				"coo",
+				"coords"
+			],
+			[
+				"cor",
+				"coordsarr"
+			],
+			[
+				"BS",
+				"BSONArrayBuilder"
+			],
+			[
+				"che",
+				"checkCreation"
+			],
+			[
+				"me",
+				"metricListener"
+			],
+			[
+				"BSON",
+				"BSONArray"
+			],
+			[
+				"sta",
+				"startTime"
+			],
+			[
+				"d",
+				"d"
+			],
+			[
+				"STRL",
+				"STRL_NAME"
+			],
+			[
+				"NO",
+				"NO_MET_F"
+			],
+			[
+				"sa",
+				"saveToDB"
+			],
+			[
+				"to",
+				"toString"
+			],
+			[
+				"metr",
+				"metricarr"
+			],
+			[
+				"IN",
+				"ROS_INFO"
+			],
+			[
+				"de",
+				"debug"
+			],
+			[
+				"set",
+				"setSValue"
+			],
+			[
+				"val",
+				"_val"
+			],
+			[
+				"MON",
+				"MONGO_DB"
+			],
+			[
+				"iu",
+				"iu"
+			],
+			[
+				"Z",
+				"Z"
+			],
+			[
+				"iC",
+				"iC"
+			],
+			[
+				"end",
+				"endfor"
+			],
+			[
+				"map",
+				"map_frame"
+			],
+			[
+				"word",
+				"word_indices"
+			],
+			[
+				"vo",
+				"vocabList"
+			],
+			[
+				"predi",
+				"predict"
+			],
+			[
+				"bes",
+				"bestS"
+			],
+			[
+				"si",
+				"sigma"
+			],
+			[
+				"pas",
+				"passedTime"
+			],
+			[
+				"cu",
+				"current1"
+			],
+			[
+				"def",
+				"define"
+			],
+			[
+				"T",
+				"the"
+			],
+			[
+				"time",
+				"timeLast"
+			],
+			[
+				"strin",
+				"stringInfo"
+			],
+			[
+				"Tra",
+				"transform"
+			],
+			[
+				"get",
+				"getOrigin"
+			],
+			[
+				"oldP",
+				"oldPose"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/ch/ros/sim_ws/src/navigation/base_local_planner/src/simple_scored_sampling_planner.cpp",
+			"settings":
+			{
+				"buffer_size": 5744,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ch/ros/sim_ws/src/navigation/base_local_planner/src/simple_trajectory_generator.cpp",
+			"settings":
+			{
+				"buffer_size": 10988,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ch/ros/sim_ws/src/navigation/base_local_planner/include/base_local_planner/trajectory.h",
+			"settings":
+			{
+				"buffer_size": 4609,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ch/ros/sim_ws/src/navigation/base_local_planner/include/base_local_planner/energy_cost_function.h",
+			"settings":
+			{
+				"buffer_size": 3177,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ch/ros/sim_ws/src/navigation/base_local_planner/src/energy_cost_function.cpp",
+			"settings":
+			{
+				"buffer_size": 5299,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/edwa_local_planner/edwa_planner.h",
+			"settings":
+			{
+				"buffer_size": 7758,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/edwa_planner.cpp",
+			"settings":
+			{
+				"buffer_size": 16458,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ch/ros/sim_ws/src/navigation/global_planner/src/planner_core.cpp",
+			"settings":
+			{
+				"buffer_size": 16611,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/edwa_planner_ros.cpp",
+			"settings":
+			{
+				"buffer_size": 11386,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/ROS.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"stat",
+				"Git: Status"
+			],
+			[
+				"git st",
+				"Git: Status"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ch/ros/sim_ws/src/auckbot_sim/edwa_local_planner/include/edwa_local_planner/edwa_planner_ros.h",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_navigation/src/path_optimizer.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/edwa_local_planner/src/edwa_planner_ros.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_analysis/src/current_msmt.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_navigation/param/base_local_planner_params.yaml",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/include/base_local_planner/trajectory_cost_function.h",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/src/trajectory.cpp",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/include/base_local_planner/simple_trajectory_generator.h",
+		"/home/ch/ros/sim_ws/src/navigation/.gitignore",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_analysis/src/nav_analysis.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_gazebo/package.xml",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_navigation/launch/move_base.xml",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/src/trajectory_planner_ros.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_navigation/launch/planner_setup_selector.sh",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_navigation/launch/amcl_move_base_mudcircleII.launch",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_navigation/param/base_local_planner_params_e.yaml",
+		"/home/ch/.bashrc",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_navigation/param/costmap_common_params.yaml",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_navigation/param/move_base_params.yaml",
+		"/home/ch/.ros/log/6e0bd9b0-a34f-11e4-ae84-0022fb63cbe4/roslaunch-acer-17272.log",
+		"/home/ch/ros/sim_ws/src/navigation/move_base/src/move_base.cpp",
+		"/home/ch/ros/sim_ws/src/navigation/costmap_2d/src/costmap_2d_ros.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_teleop/lauch/keyboard_teleop_sim.launch",
+		"/home/ch/ros/sim_ws/a.out",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/src/simple_scored_sampling_planner.cpp",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/include/base_local_planner/simple_scored_sampling_planner.h",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/src/simple_trajectory_generator.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/edwa_local_planner/CMakeLists.txt",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/edwa_local_planner/package.xml",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/edwa_local_planner/blp_plugin.xml",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/CMakeLists.txt",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_analysis/package.xml",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_analysis/CMakeLists.txt",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_gazebo/CMakeLists.txt",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/edwa_local_planner/cfg/EDWAPlanner.cfg",
+		"/home/ch/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
+		"/home/ch/MasterThesis/4_doc/plan/wasalexwichtigist.txt",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/include/base_local_planner/trajectory_inc.h",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/include/base_local_planner/costmap_model.h",
+		"/home/ch/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/edwa_local_planner/src/dwa_planner_ros.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/edwa_local_planner/src/dwa_planner.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/edwa_local_planner/include/dwa_local_planner/dwa_planner_ros.h",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/edwa_local_planner/include/dwa_local_planner/dwa_planner.h",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/edwa_local_planner/CHANGELOG.rst",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/src/energy_planner_ros.cpp",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/include/base_local_planner/energy_planner_ros.h",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/src/energy_planner.cpp",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/include/base_local_planner/energy_planner.h",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/edwa_local_planner/*/.cpp",
+		"/home/ch/ros_toolbox.sh",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/include/base_local_planner/trajectory_planner_ros.h",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/src/trajectory_planner.cpp",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/include/base_local_planner/trajectory_planner.h",
+		"/home/ch/ros/sim_ws/src/navigation/base_local_planner/include/base_local_planner/trajectory.h",
+		"/home/ch/MasterThesis/3_dev/matlab_modelfitting/main.m",
+		"/home/ch/MasterThesis/3_dev/matlab_modelfitting/applyControlRule.m",
+		"/home/ch/MasterThesis/3_dev/matlab_modelfitting/plotData.m",
+		"/home/ch/MasterThesis/3_dev/matlab_modelfitting/gradientDescentMulti.m",
+		"/home/ch/MasterThesis/3_dev/matlab_modelfitting/modelFitting.m",
+		"/home/ch/MasterThesis/3_dev/matlab_modelfitting/loadData.m",
+		"/home/ch/MasterThesis/4_doc/plan/wasmanmachensollte.txt",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_analysis/src/model_fitting.py",
+		"/home/ch/MasterThesis/3_dev/matlab_modelfitting/computeCostMulti.m",
+		"/home/ch/MasterThesis/3_dev/matlab_modelfitting/printData.m",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_navigation/launch/phidgets.launch",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_navigation/param/phidgets.yaml",
+		"/home/ch/ros/sim_ws/src/navigation/dwa_local_planner/src/dwa_planner_ros.cpp",
+		"/home/ch/ros/sim_ws/src/navigation/dwa_local_planner/src/dwa_planner.cpp",
+		"/home/ch/wasmanmachensollte.txt",
+		"/home/ch/MasterThesis/3_dev/matlab_modelfitting/note_on_normalization.txt",
+		"/home/ch/MasterThesis/3_dev/matlab_modelfitting/deNormalize.m",
+		"/home/ch/MasterThesis/3_dev/matlab_modelfitting/featureNormalize.m",
+		"/home/ch/MasterThesis/3_dev/matlab_modelfitting/normalize.m",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_teleop/CMakeLists.txt",
+		"/media/Files/text/!!Studium/Master Thesis/3_dev/matlab_modelfitting/computeCostMulti.m",
+		"/media/Files/text/!!Studium/Master Thesis/3_dev/matlab_modelfitting/gradientDescentMulti.m",
+		"/media/Files/text/!!Studium/Master Thesis/3_dev/matlab_modelfitting/loadData.m",
+		"/media/Files/text/!!Studium/Master Thesis/3_dev/matlab_modelfitting/main.m",
+		"/media/Files/text/!!Studium/Master Thesis/3_dev/matlab_modelfitting/printData.m",
+		"/media/Files/text/!!Studium/4. Semester(MSc) (WS14)/Machine Learning (coursera)/exercises/mlclass-ex1/computeCostMulti.m",
+		"/media/Files/text/!!Studium/4. Semester(MSc) (WS14)/Machine Learning (coursera)/exercises/mlclass-ex1/gradientDescentMulti.m",
+		"/media/Files/text/!!Studium/Master Thesis/3_dev/matlab_modelfitting/costFunctionM.m",
+		"/home/ch/MasterThesis/3_dev/matlab_modelfitting/costFunction.m",
+		"/home/ch/!!Studium/4. Semester(MSc) (WS14)/Machine Learning (coursera)/github/ex2/ex2/costFunctionReg.m",
+		"/home/ch/!!Studium/4. Semester(MSc) (WS14)/Machine Learning (coursera)/exercises/mlclass-ex2/ex2.m",
+		"/home/ch/!!Studium/4. Semester(MSc) (WS14)/Machine Learning (coursera)/exercises/mlclass-ex1/featureNormalize.m",
+		"/home/ch/!!Studium/4. Semester(MSc) (WS14)/Machine Learning (coursera)/github/ex1/ex1/gradientDescent.m",
+		"/home/ch/!!Studium/4. Semester(MSc) (WS14)/Machine Learning (coursera)/github/ex1/ex1/gradientDescentMulti.m",
+		"/home/ch/!!Studium/4. Semester(MSc) (WS14)/Machine Learning (coursera)/exercises/mlclass-ex1/gradientDescent.m",
+		"/home/ch/!!Studium/4. Semester(MSc) (WS14)/Machine Learning (coursera)/exercises/mlclass-ex2/predict.m",
+		"/media/Files/text/!!Studium/Master Thesis/3_dev/matlab_modelfitting/costFunction.m",
+		"/home/ch/!!Studium/4. Semester(MSc) (WS14)/Machine Learning (coursera)/exercises/mlclass-ex2/costFunction.m",
+		"/home/ch/MasterThesis/3_dev/matlab_modelfitting/gradientDescent_old.m",
+		"/media/Files/text/!!Studium/Master Thesis/3_dev/matlab_modelfitting/modelFitting.m",
+		"/home/ch/!!Studium/4. Semester(MSc) (WS14)/Machine Learning (coursera)/exercises/mlclass-ex1/ex1.m",
+		"/home/ch/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/ch/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/ch/!!Studium/3. Semester(MSc) (SS14)/forschungsarbeit ipa/docs/9_ARBEIT/Ausarbeitung_vMarcel/Masterarbeit_MarcelWeber_Ausarbeitung.tex",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_gazebo/msg/MotorCurrents.msg",
+		"/opt/ros/hydro/include/tf2/LinearMath/Quaternion.h",
+		"/opt/ros/hydro/share/geometry_msgs/msg/Pose.msg",
+		"/opt/ros/hydro/share/geometry_msgs/msg/Quaternion.msg",
+		"/opt/ros/hydro/include/geometry_msgs/Quaternion.h",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_navigation/CMakeLists.txt",
+		"/tmp/circles.cpp",
+		"/home/ch/ros/sim_ws/src/navigation/global_planner/include/global_planner/planner_core.h",
+		"/home/ch/ros/sim_ws/src/navigation/global_planner/src/planner_core.cpp",
+		"/opt/ros/hydro/share/nav_msgs/msg/Path.msg",
+		"/home/ch/ros/sim_ws/src/navigation/global_planner/src/plan_node.cpp",
+		"/home/ch/ros/sim_ws/src/navigation/global_planner/src/gradient_path.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_teleop/src/keyboard_teleop.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_navigation/package.xml",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_gazebo/src/current_pub.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_analysis/src/automatron.cpp",
+		"/home/ch/ros/sim_ws/src/navigation/move_base_msgs/CMakeLists.txt",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/navigation/global_planner/CMakeLists.txt",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/navigation/global_planner/include/global_planner/gradient_path.h",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/navigation/global_planner/src/plan_node.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/navigation/global_planner/include/global_planner/planner_core.h",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/navigation/global_planner/src/planner_core.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/auckbot_teleop/lauch/keyboard_teleop_x1000.launch",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/navigation/global_planner/src/dijkstra.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/navigation/global_planner/src/gradient_path.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/navigation/global_planner/src/grid_path.cpp",
+		"/home/ch/.sublimeText2/Pristine Packages/Color Scheme - Default.sublime-package",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/opti_planner/src/opti_planner.cpp",
+		"/home/ch/ros/sim_ws/src/auckbot_sim/opti_planner/src/planner_core.cpp"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"subscr",
+			"betterplan",
+			"better",
+			"global_pla",
+			"publis",
+			"energy_costs_",
+			"phidgetsCallback",
+			"energy",
+			"ener",
+			"EDWAPlannerConfig",
+			"reconfigure",
+			"config",
+			"param",
+			"Scale",
+			"std::abs",
+			"dis",
+			"vel",
+			"dist",
+			"setLastSpeeds",
+			"par_use_grid_path",
+			"hy",
+			"hyp",
+			"scoreTrajectory",
+			"double",
+			"logfile_",
+			"Velo",
+			"period",
+			"TrajectorySampleGenerator",
+			"Map update loop missed its desired rate of",
+			"gen_",
+			"scoreTrajectory",
+			"DEBUG",
+			"obstacle_costs_",
+			"foot",
+			"obstacle_costs_",
+			"scoreTra",
+			"obstacle_costs_",
+			"obstacle_cost_function",
+			"energ",
+			"goal_costs_",
+			"Ob",
+			"obstacle_cost",
+			"obstacle_cost_function",
+			"EDWAPlanner",
+			"alignment_costs_",
+			"obst",
+			"ObstacleCostFunction",
+			"\n ",
+			"ObstacleCostFunction",
+			"gdist_scale_",
+			"setScale",
+			"oscillation_costs_",
+			"TrajectoryCostFunction",
+			"critics",
+			"SimpleScoredSamplingPlanner",
+			"scoreTrajectory",
+			"scored_sampling_planner_",
+			"generator_",
+			"dp_",
+			"scored_sampling_planner",
+			"DEBUG",
+			"checkTrajectory",
+			"reconfigure",
+			"use_ed",
+			"DWA",
+			"dwa",
+			"DWA",
+			"dwa",
+			"generateTrajectory",
+			"comp_traj",
+			"createTrajectories",
+			"tc",
+			"ep_",
+			"tc_",
+			"ep",
+			"tc_",
+			"drive_velocities",
+			"findBestPath",
+			"computeVelocityCommands",
+			"pdist",
+			"create",
+			"Trajectories",
+			"createTrajectories",
+			"cost",
+			"scoreTr",
+			"traje",
+			"trajec",
+			"TrajectoryP",
+			"Trajectory",
+			"ypos",
+			"cos",
+			"xax",
+			"X",
+			"0; %",
+			"0; %X",
+			"0; %",
+			"X",
+			"0; %X",
+			"0; %",
+			";\n",
+			"X",
+			"X_norm",
+			"Norm",
+			"X_norm",
+			"X(",
+			"X",
+			"ylabel",
+			"1",
+			"ylabeltit",
+			"ylabel",
+			"xlabel",
+			"ylabel",
+			"mu",
+			"/",
+			"timeSince",
+			"DEB",
+			"save",
+			"duration",
+			"self.bufferAcceleration",
+			"acceleration",
+			"bufferAcceleration",
+			"lasttim",
+			"\\[.....\\]",
+			"\\[...\\]",
+			"\\[..\\]",
+			"linearize",
+			"ser",
+			"serial"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"EnergyP",
+			"if(DEBUG) ROS_INFO",
+			"path",
+			"PathOptimizer",
+			"opti",
+			"Opti",
+			"opti",
+			"DB",
+			"MongoDB_DIR"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/ch/ros/sim_ws/src/navigation/base_local_planner/src/simple_scored_sampling_planner.cpp",
+					"settings":
+					{
+						"buffer_size": 5744,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3157,
+								3157
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 699.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/ch/ros/sim_ws/src/navigation/base_local_planner/src/simple_trajectory_generator.cpp",
+					"settings":
+					{
+						"buffer_size": 10988,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4029.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/ch/ros/sim_ws/src/navigation/base_local_planner/include/base_local_planner/trajectory.h",
+					"settings":
+					{
+						"buffer_size": 4609,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2772,
+								2772
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/ch/ros/sim_ws/src/navigation/base_local_planner/include/base_local_planner/energy_cost_function.h",
+					"settings":
+					{
+						"buffer_size": 3177,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2033,
+								2033
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 333.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/ch/ros/sim_ws/src/navigation/base_local_planner/src/energy_cost_function.cpp",
+					"settings":
+					{
+						"buffer_size": 5299,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5236,
+								5236
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 425.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "include/edwa_local_planner/edwa_planner.h",
+					"settings":
+					{
+						"buffer_size": 7758,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7646,
+								7646
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2679.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/edwa_planner.cpp",
+					"settings":
+					{
+						"buffer_size": 16458,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2330,
+								2330
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 716.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/ch/ros/sim_ws/src/navigation/global_planner/src/planner_core.cpp",
+					"settings":
+					{
+						"buffer_size": 16611,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2476,
+								2476
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 605.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/edwa_planner_ros.cpp",
+					"settings":
+					{
+						"buffer_size": 11386,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9137,
+								9137
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3750.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 194.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

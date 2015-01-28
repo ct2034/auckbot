@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="pkg_auckbot_navigation" default="$(find auckbot_navigation)"/>
+
+	<node pkg="cob_phidgets" type="phidget_sensors" name="phidgets" cwd="node" respawn="true" output="screen">
+		<rosparam file="$(arg pkg_auckbot_navigation)/param/phidgets.yaml" command="load" />
+	</node>
+</launch>

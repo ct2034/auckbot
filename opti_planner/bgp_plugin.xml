@@ -1,0 +1,7 @@
+<library path="lib/libopti_planner">
+  <class name="opti_planner/OptiPlanner" type="opti_planner::OptiPlanner" base_class_type="nav_core::BaseGlobalPlanner">
+    <description>
+      Another planner
+    </description>
+  </class>
+</library>

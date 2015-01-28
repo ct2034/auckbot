@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="rviz" name="rviz" type="rviz" args="-d $(find auckbot_navigation)/param/rviz.rviz" output="screen"/>
+</launch> 

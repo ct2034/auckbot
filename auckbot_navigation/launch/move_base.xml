@@ -1,0 +1,21 @@
+<launch>
+  
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="base_global_planner" value="$(env MB_BASE_GLOBAL_PLANNER)" /> 
+    <param name="use_grid_path" value="$(env MB_USE_GRID_PATH)" />
+    
+    <!-- EDWA -->
+    <param if="$(env MB_BASE_LOCAL_PLANNER_E)" name="base_local_planner" value="edwa_local_planner/EDWAPlannerROS" />
+    
+    <!-- DWA -->
+    <param unless="$(env MB_BASE_LOCAL_PLANNER_E)" name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+    
+    <rosparam file="$(find auckbot_navigation)/param/base_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find auckbot_navigation)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find auckbot_navigation)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find auckbot_navigation)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find auckbot_navigation)/param/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find auckbot_navigation)/param/move_base_params.yaml" command="load" />
+  </node>
+
+</launch>

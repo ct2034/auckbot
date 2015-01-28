@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>auckbot_description</name>
+  <version>0.0.0</version>
+  <description>The auckbot_description package</description>
+
+  <maintainer email="post@henkelchristian.de">Christian Henkel</maintainer>
+
+  <license>GPLv2</license>
+
+  <author email="post@henkelchristian.de">Christian Henkel</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+  </export>
+</package>

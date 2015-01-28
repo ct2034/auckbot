@@ -1,0 +1,23 @@
+frequency: 30                       #nodes update frequency in hz
+update_mode: polling                #switch between poll and event driven processing [polling, event]
+
+boards:                             
+  current:                          #phidget board with a name
+    serial_num: 314549              #phidget boards serial number
+    ratiometric: true
+    sensors:                        #configured sensors of this board
+      main:                         #sensor after battery
+        type: analog
+        index: 0
+      motor_1:                      #sensor motor 1
+        type: analog
+        index: 1
+      motor_2:                      #sensor motor 2
+        type: analog
+        index: 2
+      motor_3:                      #sensor motor 3
+        type: analog
+        index: 3
+      motor_4:                      #sensor motor 4
+        type: analog
+        index: 4

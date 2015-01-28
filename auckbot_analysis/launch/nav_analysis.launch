@@ -1,0 +1,10 @@
+<launch>
+  
+  <node pkg="auckbot_analysis" type="nav_analysis" respawn="false" name="nav_nalaysis" output="screen">
+    <param name="map_frame" value="/map" /> 
+    <param name="robot_frame" value="/base_link" /> 
+    <param name="debug" value="false" /> 
+
+  </node>
+
+</launch>
