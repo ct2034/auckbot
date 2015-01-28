@@ -1,0 +1,9 @@
+<launch>
+
+  <!-- model in ROS Parameter Server -->
+  <param name="robot_description"	 command="$(find xacro)/xacro.py '$(find auckbot_description)/urdf/auckbot.xacro'" />
+
+  <!-- Lases Scanners -->
+  <include file="$(find auckbot_navigation)/launch/hokuyo.launch" />
+
+</launch>
