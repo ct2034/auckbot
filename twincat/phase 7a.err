@@ -1,0 +1,64 @@
+Declarations of the global constants
+Declarations of the global library constants
+Declarations of the global constants
+Declarations of the global library constants
+Declarations of the global variables
+Data allocation
+Check task configuration
+Implementation of POU 'MAIN.ActHaltAxis1'
+Error 4268: MAIN.ActHaltAxis1 (1): Expression expected
+Error 4052: MAIN.ActHaltAxis1 (1): '' must be a declared instance of function block 'MC_Halt'
+Implementation of POU 'MAIN.ActHaltAxis2'
+Error 4268: MAIN.ActHaltAxis2 (1): Expression expected
+Error 4052: MAIN.ActHaltAxis2 (1): '' must be a declared instance of function block 'MC_Halt'
+Implementation of POU 'MAIN.ActHaltAxis3'
+Error 4268: MAIN.ActHaltAxis3 (1): Expression expected
+Error 4052: MAIN.ActHaltAxis3 (1): '' must be a declared instance of function block 'MC_Halt'
+Implementation of POU 'MAIN.ActHaltAxis4'
+Error 4268: MAIN.ActHaltAxis4 (1): Expression expected
+Error 4052: MAIN.ActHaltAxis4 (1): '' must be a declared instance of function block 'MC_Halt'
+Implementation of POU 'MAIN.ActMove'
+Error 4268: MAIN.ActMove (1): Expression expected
+Error 4052: MAIN.ActMove (1): '' must be a declared instance of function block 'MC_MoveVelocity'
+Error 4268: MAIN.ActMove (2): Expression expected
+Error 4052: MAIN.ActMove (2): '' must be a declared instance of function block 'MC_MoveVelocity'
+Error 4268: MAIN.ActMove (3): Expression expected
+Error 4052: MAIN.ActMove (3): '' must be a declared instance of function block 'MC_MoveVelocity'
+Error 4268: MAIN.ActMove (4): Expression expected
+Error 4052: MAIN.ActMove (4): '' must be a declared instance of function block 'MC_MoveVelocity'
+Error 4268: MAIN.ActMove (5): Expression expected
+Error 4052: MAIN.ActMove (5): '' must be a declared instance of function block 'MC_MoveVelocity'
+Error 4268: MAIN.ActMove (6): Expression expected
+Error 4052: MAIN.ActMove (6): '' must be a declared instance of function block 'MC_MoveVelocity'
+Error 4268: MAIN.ActMove (7): Expression expected
+Error 4052: MAIN.ActMove (7): '' must be a declared instance of function block 'MC_MoveVelocity'
+Error 4268: MAIN.ActMove (8): Expression expected
+Error 4052: MAIN.ActMove (8): '' must be a declared instance of function block 'MC_MoveVelocity'
+Implementation of POU 'MAIN.ActPower'
+Error 4268: MAIN.ActPower (1): Expression expected
+Error 4052: MAIN.ActPower (1): '' must be a declared instance of function block 'MC_Power'
+Error 4268: MAIN.ActPower (2): Expression expected
+Error 4052: MAIN.ActPower (2): '' must be a declared instance of function block 'MC_Power'
+Error 4268: MAIN.ActPower (3): Expression expected
+Error 4052: MAIN.ActPower (3): '' must be a declared instance of function block 'MC_Power'
+Error 4268: MAIN.ActPower (4): Expression expected
+Error 4052: MAIN.ActPower (4): '' must be a declared instance of function block 'MC_Power'
+Implementation of POU 'MAIN.ActReset'
+Error 4268: MAIN.ActReset (1): Expression expected
+Error 4052: MAIN.ActReset (1): '' must be a declared instance of function block 'MC_Reset'
+Error 4268: MAIN.ActReset (2): Expression expected
+Error 4052: MAIN.ActReset (2): '' must be a declared instance of function block 'MC_Reset'
+Error 4268: MAIN.ActReset (3): Expression expected
+Error 4052: MAIN.ActReset (3): '' must be a declared instance of function block 'MC_Reset'
+Error 4268: MAIN.ActReset (4): Expression expected
+Error 4052: MAIN.ActReset (4): '' must be a declared instance of function block 'MC_Reset'
+Implementation of task 'Fast'
+Implementation of task 'Standard'
+Warning 1411:  (128): Variable 'Axis1.NcToPlc' in the variable configuration is not updated in any task
+Warning 1411:  (256): Variable 'Axis2.NcToPlc' in the variable configuration is not updated in any task
+Warning 1411:  (512): Variable 'Axis3.NcToPlc' in the variable configuration is not updated in any task
+Warning 1411:  (1024): Variable 'Axis4.NcToPlc' in the variable configuration is not updated in any task
+Warning 1411: @ (128): Variable 'Axis1.PlcToNc' in the variable configuration is not updated in any task
+Warning 1411: @ (256): Variable 'Axis2.PlcToNc' in the variable configuration is not updated in any task
+Warning 1411: @ (512): Variable 'Axis3.PlcToNc' in the variable configuration is not updated in any task
+Warning 1411: @ (1024): Variable 'Axis4.PlcToNc' in the variable configuration is not updated in any task
