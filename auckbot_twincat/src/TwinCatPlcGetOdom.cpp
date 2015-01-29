@@ -155,10 +155,10 @@ int main(int argc , char **argv)
 
 		  robotPosX = (strtod(robotPosXStr, NULL))/MMPM;
 		  robotPosY = (strtod(robotPosYStr, NULL))/MMPM;
-		  robotPosTheta = strtod(robotPosThetaStr, NULL)/1800*2*PI;
+		  robotPosTheta = strtod(robotPosThetaStr, NULL)/18000*2*PI;
 		  robotVelX = (strtod(robotVelXStr, NULL))/MMPM;
 		  robotVelY = (strtod(robotVelYStr, NULL))/MMPM;
-		  robotVelTheta = strtod(robotVelThetaStr, NULL)/1800*2*PI;
+		  robotVelTheta = strtod(robotVelThetaStr, NULL)/18000*2*PI;
 
       //ROS_INFO("%s, %f, %f", robotPosThetaStr, robotPosTheta, robotPosTheta/180*2*PI);
 

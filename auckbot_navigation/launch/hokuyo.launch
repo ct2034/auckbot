@@ -10,7 +10,7 @@
     <param name="frame_id" type="string" value="laser_fr"/>
   </node>
   <node pkg="tf" type="static_transform_publisher" name="base_to_laser_tf_ft" 
-    args="0.43 0.41 0.39 0.7854 0.0 0.0 /base_link /laser_fr 100" />
+    args="0.43 0.41 0.39 0.7854 0.0 0.0 /base_link /laser_fr 50" />
   
   <!-- BACK -->
   <node name="hokuyo_bk" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen">
@@ -23,6 +23,6 @@
     <param name="frame_id" type="string" value="laser_bk"/>
   </node>
   <node pkg="tf" type="static_transform_publisher" name="base_to_laser_tf_bk" 
-    args="-0.7 -0.41 0.39 3.927 0.0 0.0 /base_link /laser_bk 100" />
+    args="-0.7 -0.41 0.39 3.927 0.0 0.0 /base_link /laser_bk 50" />
    
 </launch>

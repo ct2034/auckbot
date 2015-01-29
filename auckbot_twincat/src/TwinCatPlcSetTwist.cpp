@@ -26,6 +26,8 @@ using namespace std;
 #include<sys/socket.h>    //socket
 #include<arpa/inet.h> //inet_addr
 
+#define MAX_SPEED 99
+
 int sock;
 struct sockaddr_in server;
 
@@ -33,7 +35,19 @@ struct sockaddr_in server;
 void cmd_velCallback(const geometry_msgs::Twist &twist)
 {
 	double linVelX = -twist.linear.x;
+  if (abs(linVelX) > 99)
+  {
+    ROS_WARN("Speed in x to big");
+    if (linVelX > 0) linVelX = 99.0;
+    else linVelX = -99.0;
+  }
 	double linVelY = -twist.linear.y;
+  if (abs(linVelY) > 99)
+  {
+    ROS_WARN("Speed in y to big");
+    if (linVelY > 0) linVelY = 99.0;
+    else linVelY = -99.0;
+  }
 	double linVelZ = 0; // twist.linear.z;
 
 	double angVelX = 0; // twist.angular.x;
@@ -113,7 +127,7 @@ void cmd_velCallback(const geometry_msgs::Twist &twist)
 		puts("Send failed\n");
 	}
 
-	ROS_INFO("> sent to TwinCat: velWheel1 = %.2f , ..2 = %.2f , ..3 = %.2f , ..4 = %.2f \n", velWheel1, velWheel2, velWheel3, velWheel4);
+	ROS_INFO("> sent to TwinCat: velWheel1 = %d , ..2 = %d , ..3 = %d , ..4 = %d \n", (int) velWheel1, (int) velWheel2, (int) velWheel3, (int) velWheel4);
 }
 
 int main(int argc , char **argv)
