@@ -1,9 +1,12 @@
 <launch>
 
   <!-- model in ROS Parameter Server -->
-  <param name="robot_description"	 command="$(find xacro)/xacro.py '$(find auckbot_description)/urdf/auckbot.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find auckbot_description)/urdf/auckbot.xacro'" />
 
   <!-- Lases Scanners -->
   <include file="$(find auckbot_navigation)/launch/hokuyo.launch" />
+
+  <!-- Twin CAT driver -->
+  <include file="$(find auckbot_twincat)/launch/TwinCatConnection.launch" />
 
 </launch>

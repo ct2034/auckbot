@@ -1,6 +1,4 @@
 <launch>
-    <param name="robot_description" command="cat $(find auckbot_description)/urdf/auckbot.xacro" />
-
   <!-- FRONT -->
   <node name="hokuyo_fr" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen">
     <!-- Starts up faster, but timestamps will be inaccurate. --> 
