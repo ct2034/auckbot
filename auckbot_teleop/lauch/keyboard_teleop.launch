@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 <launch>   
   <node pkg="auckbot_teleop" type="auckbot_teleop_node" name="auckbot_teleop_node" output="screen">
-    <param name="max_sp_lin" value="9" /> 
-    <param name="max_sp_rot" value="9" /> 
+    <param name="max_sp_lin" value="1" /> 
+    <param name="max_sp_rot" value="1" /> 
     <param name="grad" value="0.5" /> 
 
   </node>

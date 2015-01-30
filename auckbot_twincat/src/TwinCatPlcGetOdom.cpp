@@ -155,10 +155,10 @@ int main(int argc , char **argv)
 
 		  robotPosX = (strtod(robotPosXStr, NULL))/MMPM;
 		  robotPosY = (strtod(robotPosYStr, NULL))/MMPM;
-		  robotPosTheta = strtod(robotPosThetaStr, NULL)/18000*2*PI;
+		  robotPosTheta = strtod(robotPosThetaStr, NULL)/180000*2*PI;
 		  robotVelX = (strtod(robotVelXStr, NULL))/MMPM;
 		  robotVelY = (strtod(robotVelYStr, NULL))/MMPM;
-		  robotVelTheta = strtod(robotVelThetaStr, NULL)/18000*2*PI;
+		  robotVelTheta = strtod(robotVelThetaStr, NULL)/180000*2*PI;
 
       //ROS_INFO("%s, %f, %f", robotPosThetaStr, robotPosTheta, robotPosTheta/180*2*PI);
 
@@ -169,10 +169,10 @@ int main(int argc , char **argv)
 		  double robotVelY_sign = strtod(robotVelY_signStr, NULL);
 		  double robotVelTheta_sign = strtod(robotVelTheta_signStr, NULL);
 
-		  if(robotPosX_sign == 1) robotPosX = robotPosX*(-1);
+		  if(robotPosX_sign != 1) robotPosX = robotPosX*(-1);
 		  if(robotPosY_sign == 1) robotPosY = robotPosY*(-1);
 		  if(robotPosTheta_sign == 1) robotPosTheta = robotPosTheta*(-1);
-		  if(robotVelX_sign == 1) robotVelX = robotVelX*(-1);
+		  if(robotVelX_sign != 1) robotVelX = robotVelX*(-1);
 		  if(robotVelY_sign == 1) robotVelY = robotVelY*(-1);
 		  if(robotVelTheta_sign == 1) robotVelTheta = robotVelTheta*(-1);
 			   	

@@ -26,7 +26,7 @@ using namespace std;
 #include<sys/socket.h>    //socket
 #include<arpa/inet.h> //inet_addr
 
-#define MAX_SPEED 99
+#define MAX_SPEED 9.9
 
 int sock;
 struct sockaddr_in server;
@@ -35,18 +35,18 @@ struct sockaddr_in server;
 void cmd_velCallback(const geometry_msgs::Twist &twist)
 {
 	double linVelX = -twist.linear.x;
-  if (abs(linVelX) > 99)
+  if (abs(linVelX) > MAX_SPEED)
   {
     ROS_WARN("Speed in x to big");
-    if (linVelX > 0) linVelX = 99.0;
-    else linVelX = -99.0;
+    if (linVelX > 0) linVelX = MAX_SPEED;
+    else linVelX = -MAX_SPEED;
   }
 	double linVelY = -twist.linear.y;
-  if (abs(linVelY) > 99)
+  if (abs(linVelY) > MAX_SPEED)
   {
     ROS_WARN("Speed in y to big");
-    if (linVelY > 0) linVelY = 99.0;
-    else linVelY = -99.0;
+    if (linVelY > 0) linVelY = MAX_SPEED;
+    else linVelY = -MAX_SPEED;
   }
 	double linVelZ = 0; // twist.linear.z;
 
@@ -71,10 +71,10 @@ void cmd_velCallback(const geometry_msgs::Twist &twist)
 	double velWheel4 = 1/R * (linVelX + linVelY +(l1+l2)*angVelZ);
 
 	//Create message
-	velWheel1 = velWheel1 * 1000;
-	velWheel2 = velWheel2 * 1000;
-	velWheel3 = velWheel3 * 1000;
-	velWheel4 = velWheel4 * 1000;
+	velWheel1 = velWheel1 * 10000;
+	velWheel2 = velWheel2 * 10000;
+	velWheel3 = velWheel3 * 10000;
+	velWheel4 = velWheel4 * 10000;
 
 	char velWheel1Str[8];
 	sprintf(velWheel1Str, "%07.0f", velWheel1);
