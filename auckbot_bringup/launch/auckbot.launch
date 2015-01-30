@@ -6,7 +6,7 @@
   <!-- Lases Scanners -->
   <include file="$(find auckbot_navigation)/launch/hokuyo.launch" />
 
-  <!-- Twin CAT driver -->
-  <include file="$(find auckbot_twincat)/launch/TwinCatConnection.launch" />
+  <!-- Twin CAT driver 
+  <include file="$(find auckbot_twincat)/launch/TwinCatConnection.launch" /> -->
 
 </launch>

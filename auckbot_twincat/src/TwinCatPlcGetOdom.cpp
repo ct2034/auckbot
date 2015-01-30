@@ -115,15 +115,16 @@ int main(int argc , char **argv)
 	  if(rc < BufferLength) {
       memset(twinCatMessage, 0, BufferLength);
     } else {
+      current_time = ros::Time::now();      
 
-      ROS_INFO("alright: %s", twinCatMessage);
+      //ROS_INFO("alright: %s", twinCatMessage);
 
       std::string str = std::string(twinCatMessage);
       std::vector<std::string> tokens;
 
       boost::algorithm::split(tokens, str, boost::algorithm::is_any_of(" ")); // here it is
 
-      ROS_INFO("no2: >%s<, no3: >%s<", tokens[2].c_str(), tokens[3].c_str());
+      //ROS_INFO("no2: >%s<, no3: >%s<", tokens[2].c_str(), tokens[3].c_str());
       
 		  char robotPosXStr[7];
       tokens[0].copy(robotPosXStr, 7, 0);      
@@ -154,10 +155,12 @@ int main(int argc , char **argv)
 
 		  robotPosX = (strtod(robotPosXStr, NULL))/MMPM;
 		  robotPosY = (strtod(robotPosYStr, NULL))/MMPM;
-		  robotPosTheta = strtod(robotPosThetaStr, NULL)/10;
+		  robotPosTheta = strtod(robotPosThetaStr, NULL)/18000*2*PI;
 		  robotVelX = (strtod(robotVelXStr, NULL))/MMPM;
 		  robotVelY = (strtod(robotVelYStr, NULL))/MMPM;
-		  robotVelTheta = strtod(robotVelThetaStr, NULL)/10;
+		  robotVelTheta = strtod(robotVelThetaStr, NULL)/18000*2*PI;
+
+      //ROS_INFO("%s, %f, %f", robotPosThetaStr, robotPosTheta, robotPosTheta/180*2*PI);
 
 		  double robotPosX_sign = strtod(robotPosX_signStr, NULL);
 		  double robotPosY_sign = strtod(robotPosY_signStr, NULL);
@@ -179,8 +182,8 @@ int main(int argc , char **argv)
 		  //first, we'll publish the transform over tf
 		  geometry_msgs::TransformStamped odom_trans;
 		  odom_trans.header.stamp = current_time;
-		  odom_trans.header.frame_id = "odom";
-		  odom_trans.child_frame_id = "base_link";
+		  odom_trans.header.frame_id = "/odom";
+		  odom_trans.child_frame_id = "/base_link";
 
 		  odom_trans.transform.translation.x = robotPosX;
 		  odom_trans.transform.translation.y = robotPosY;
@@ -193,8 +196,8 @@ int main(int argc , char **argv)
 		  //next, we'll publish the odometry message over ROS
 		  nav_msgs::Odometry odom;
 		  odom.header.stamp = current_time;
-		  odom.header.frame_id = "odom";
-		  odom.child_frame_id = "base_link";
+		  odom.header.frame_id = "/odom";
+		  odom.child_frame_id = "/base_link";
 
 		  //set the position
 		  odom.pose.pose.position.x = robotPosX;
@@ -224,7 +227,7 @@ int main(int argc , char **argv)
 
 		  //publish the message
 		  odom_pub.publish(odom);
-		  ROS_INFO("...Odometry published. %f %f %f %f %f %f\n", robotPosX, robotPosY, robotPosTheta, robotVelX, robotVelY, robotVelTheta);
+		  //ROS_INFO("...Odometry published. %f %f %f %f %f %f\n", robotPosX, robotPosY, robotPosTheta, robotVelX, robotVelY, robotVelTheta);
 
 		  last_time = current_time;
 		  r.sleep();
