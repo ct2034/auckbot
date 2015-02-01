@@ -4,7 +4,7 @@
   <!-- "camera" should uniquely identify the device. All topics are pushed down
        into the "camera" namespace, and it is prepended to tf frame ids. -->
   <arg name="camera" default="kinect" />
-  <arg name="tf_prefix" default="" />
+  <arg name="tf_prefix" default="kinect" />
   <arg name="rgb_frame_id"   default="$(arg tf_prefix)/$(arg camera)_rgb_optical_frame" />
   <arg name="depth_frame_id" default="$(arg tf_prefix)/$(arg camera)_depth_optical_frame" />
 
@@ -106,11 +106,9 @@
   
   </group> <!-- camera -->
 
-  <!-- Load reasonable defaults for the relative pose between cameras -->
-  <include if="$(arg publish_tf)"
-	   file="$(find rgbd_launch)/launch/kinect_frames.launch">
-    <arg name="camera" value="$(arg camera)" />
-    <arg name="tf_prefix" value="$(arg tf_prefix)" />
-  </include>
+  <!-- TF FRAMES -->
+  <node pkg="tf" type="static_transform_publisher" name="base_to_camera_tf" 
+    args="0.6 0.0 0.39 0.0 0.0 0.0 /base_link /kinect_link 100" />
+   
 
 </launch>
