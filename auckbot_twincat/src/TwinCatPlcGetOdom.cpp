@@ -43,6 +43,11 @@ int main(int argc , char **argv)
 	ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 50);
 	tf::TransformBroadcaster odom_broadcaster;
 
+  // do we want tf?
+  bool publish_tf = false;
+  if(!ros::param::get("~publish_tf", publish_tf)) ROS_ERROR("Can not get param publish_tf, using default (false)");
+  ROS_INFO("publish_tf: %d", publish_tf);
+
 	// TCP/IP Connection - variables
     int sock, read_size;
     struct sockaddr_in server;
@@ -112,6 +117,8 @@ int main(int argc , char **argv)
 		rc = read(sock, twinCatMessage, BufferLength);
     rc = strlen(twinCatMessage);
 
+    current_time = ros::Time::now();  
+
 	  if(rc < BufferLength) {
       memset(twinCatMessage, 0, BufferLength);
     } else {
@@ -138,13 +145,15 @@ int main(int argc , char **argv)
       tokens[4].copy(robotVelYStr, 7, 0);
 		  char robotVelThetaStr[7];
       tokens[5].copy(robotVelThetaStr, 7, 0);
+    
+		  char robotPosX_signStr[2] = {robotPosXStr[0], '\0'};
+		  char robotPosY_signStr[2] = {robotPosYStr[0], '\0'};
+		  char robotPosTheta_signStr[2] = {robotPosThetaStr[0], '\0'};
+		  char robotVelX_signStr[2] = {robotVelXStr[0], '\0'};
+		  char robotVelY_signStr[2] = {robotVelYStr[0], '\0'};
+		  char robotVelTheta_signStr[2] = {robotVelThetaStr[0], '\0'};
 
-		  char robotPosX_signStr[2] = {twinCatMessage[42], '\0'};
-		  char robotPosY_signStr[2] = {twinCatMessage[43], '\0'};
-		  char robotPosTheta_signStr[2] = {twinCatMessage[44], '\0'};
-		  char robotVelX_signStr[2] = {twinCatMessage[45], '\0'};
-		  char robotVelY_signStr[2] = {twinCatMessage[46], '\0'};
-		  char robotVelTheta_signStr[2] = {twinCatMessage[47], '\0'};
+      ROS_INFO("robotPosX_signStr: >%s<, robotVelY_signStr: >%s<", robotPosX_signStr, robotVelY_signStr);
 
 		  double oldRobotPosX = robotPosX;
 		  double oldRobotPosY = robotPosY;
@@ -155,10 +164,10 @@ int main(int argc , char **argv)
 
 		  robotPosX = (strtod(robotPosXStr, NULL))/MMPM;
 		  robotPosY = (strtod(robotPosYStr, NULL))/MMPM;
-		  robotPosTheta = strtod(robotPosThetaStr, NULL)/180000*2*PI;
+		  robotPosTheta = strtod(robotPosThetaStr, NULL)/18000*PI;
 		  robotVelX = (strtod(robotVelXStr, NULL))/MMPM;
 		  robotVelY = (strtod(robotVelYStr, NULL))/MMPM;
-		  robotVelTheta = strtod(robotVelThetaStr, NULL)/180000*2*PI;
+		  robotVelTheta = strtod(robotVelThetaStr, NULL)/18000*PI;
 
       //ROS_INFO("%s, %f, %f", robotPosThetaStr, robotPosTheta, robotPosTheta/180*2*PI);
 
@@ -169,11 +178,11 @@ int main(int argc , char **argv)
 		  double robotVelY_sign = strtod(robotVelY_signStr, NULL);
 		  double robotVelTheta_sign = strtod(robotVelTheta_signStr, NULL);
 
-		  if(robotPosX_sign != 1) robotPosX = robotPosX*(-1);
-		  if(robotPosY_sign == 1) robotPosY = robotPosY*(-1);
+		  if(robotPosX_sign == 1) robotPosX = robotPosX*(-1);
+		  if(robotPosY_sign != 1) robotPosY = robotPosY*(-1);
 		  if(robotPosTheta_sign == 1) robotPosTheta = robotPosTheta*(-1);
-		  if(robotVelX_sign != 1) robotVelX = robotVelX*(-1);
-		  if(robotVelY_sign == 1) robotVelY = robotVelY*(-1);
+		  if(robotVelX_sign == 1) robotVelX = robotVelX*(-1);
+		  if(robotVelY_sign != 1) robotVelY = robotVelY*(-1);
 		  if(robotVelTheta_sign == 1) robotVelTheta = robotVelTheta*(-1);
 			   	
 		  //since all odometry is 6DOF we'll need a quaternion created from yaw
@@ -190,8 +199,11 @@ int main(int argc , char **argv)
 		  odom_trans.transform.translation.z = 0.0;
 		  odom_trans.transform.rotation = odom_quat;
 
-		  //send the transform
-		  odom_broadcaster.sendTransform(odom_trans);
+      
+      if(publish_tf) {    
+		    //send the transform
+		    odom_broadcaster.sendTransform(odom_trans);
+      }
 
 		  //next, we'll publish the odometry message over ROS
 		  nav_msgs::Odometry odom;
@@ -204,30 +216,28 @@ int main(int argc , char **argv)
 		  odom.pose.pose.position.y = robotPosY;
 		  odom.pose.pose.position.z = 0.0;
 		  odom.pose.pose.orientation = odom_quat;
+      odom.pose.covariance[0] = 1;
+      odom.pose.covariance[7] = 1;
+      odom.pose.covariance[14] = 1;
+      odom.pose.covariance[21] = 1;
+      odom.pose.covariance[28] = 1;
+      odom.pose.covariance[35] = 1;
 
-		  bool artSpeed = true; // TODO: Decide this based on a sanity check of the acceleration
-
-		  if(artSpeed) {
-			  //calculate artificial speed
-			  double duration = current_time.toSec() - last_time.toSec();
-			  odom.twist.twist.linear.x = (robotPosX - oldRobotPosX) / duration;
-			  odom.twist.twist.linear.y = (robotPosY - oldRobotPosY) / duration;
-
-			  double diff = robotPosTheta - oldRobotPosTheta;
-			  if (diff > 2*PI) diff -= 2*PI;
-			  odom.twist.twist.angular.z = diff / duration;
-		  }
-		  else
-		  {
-			  //set the velocity from TwinCat
-			  odom.twist.twist.linear.x = robotVelX;
-			  odom.twist.twist.linear.y = robotVelY;
-			  odom.twist.twist.angular.z = robotVelTheta;
-		  }
+		  //set the velocity from TwinCat
+		  odom.twist.twist.linear.x = robotVelX;
+		  odom.twist.twist.linear.y = robotVelY;
+		  odom.twist.twist.angular.z = robotVelTheta;
+      odom.twist.covariance[0] = 1;
+      odom.twist.covariance[7] = 1;
+      odom.twist.covariance[14] = 1;
+      odom.twist.covariance[21] = 1;
+      odom.twist.covariance[28] = 1;
+      odom.twist.covariance[35] = 1;
+		  
 
 		  //publish the message
 		  odom_pub.publish(odom);
-		  //ROS_INFO("...Odometry published. %f %f %f %f %f %f\n", robotPosX, robotPosY, robotPosTheta, robotVelX, robotVelY, robotVelTheta);
+		  ROS_INFO("...Odometry published. %f %f %f %f %f %f\n", robotPosX, robotPosY, robotPosTheta, robotVelX, robotVelY, robotVelTheta);
 
 		  last_time = current_time;
 		  r.sleep();
