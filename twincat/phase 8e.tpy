@@ -4,7 +4,7 @@
 	<ProjectInfo>
 		<Path>C:\Users\ch\Desktop\phase 8e.pro</Path>
 		<IsLibrary>false</IsLibrary>
-		<ChangeDate>2015-01-29T12:13:28</ChangeDate>
+		<ChangeDate>2015-02-03T15:39:06</ChangeDate>
 		<Library>
 			<Name>TcpIp.lib</Name>
 			<Path>c:\twincatlib\TcpIp.lib</Path>
@@ -1764,338 +1764,6 @@
 			</FbInfo>
 		</DataType>
 		<DataType>
-			<Name Decoration="2001017B">ARRAY [1..5] OF LREAL</Name>
-			<Type>LREAL</Type>
-			<BitSize>320</BitSize>
-			<ArrayInfo>
-				<LBound>1</LBound>
-				<Elements>5</Elements>
-			</ArrayInfo>
-		</DataType>
-		<DataType>
-			<Name Decoration="200134F3">ARRAY [1..3] OF kalmanFilter</Name>
-			<Type Decoration="100B216A">kalmanFilter</Type>
-			<BitSize>2112</BitSize>
-			<ArrayInfo>
-				<LBound>1</LBound>
-				<Elements>3</Elements>
-			</ArrayInfo>
-		</DataType>
-		<DataType>
-			<Name Decoration="20015218">ARRAY [1..3] OF extendedKalmanFilter</Name>
-			<Type Decoration="10143C35">extendedKalmanFilter</Type>
-			<BitSize>3696</BitSize>
-			<ArrayInfo>
-				<LBound>1</LBound>
-				<Elements>3</Elements>
-			</ArrayInfo>
-		</DataType>
-		<DataType>
-			<Name Decoration="102FAE6F" Crc32="3708760543" LastChange="2014-11-16T12:56:28">localization</Name>
-			<BitSize>962480</BitSize>
-			<SubItem>
-				<Name>w1</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>0</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>w2</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>64</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>w3</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>128</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>w4</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>192</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>sw1</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>256</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>sw2</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>320</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>sw3</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>384</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>sw4</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>448</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name IsDefinedInLibrary="1" Library="c:\twincatlib\TcMC2.lib">encoder1</Name>
-				<Type Decoration="1006BE2E">_FBAXIS_REF</Type>
-				<BitSize>7088</BitSize>
-				<BitOffs>512</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name IsDefinedInLibrary="1" Library="c:\twincatlib\TcMC2.lib">encoder2</Name>
-				<Type Decoration="1006BE2E">_FBAXIS_REF</Type>
-				<BitSize>7088</BitSize>
-				<BitOffs>7600</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name IsDefinedInLibrary="1" Library="c:\twincatlib\TcMC2.lib">encoder3</Name>
-				<Type Decoration="1006BE2E">_FBAXIS_REF</Type>
-				<BitSize>7088</BitSize>
-				<BitOffs>14688</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name IsDefinedInLibrary="1" Library="c:\twincatlib\TcMC2.lib">encoder4</Name>
-				<Type Decoration="1006BE2E">_FBAXIS_REF</Type>
-				<Comment>
-					<![CDATA[working variable]]>
-				</Comment>
-				<BitSize>7088</BitSize>
-				<BitOffs>21776</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>globalePosX</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>28864</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>globalePosY</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>28928</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>heading_radians1</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>28992</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>globalePosX1</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>29056</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>globalePosY1</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>29120</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>sencoderX</Name>
-				<Type Decoration="2001017B">ARRAY [1..5] OF LREAL</Type>
-				<BitSize>320</BitSize>
-				<BitOffs>29184</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>sencoderY</Name>
-				<Type Decoration="2001017B">ARRAY [1..5] OF LREAL</Type>
-				<BitSize>320</BitSize>
-				<BitOffs>29504</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>sheading</Name>
-				<Type Decoration="2001017B">ARRAY [1..5] OF LREAL</Type>
-				<Comment>
-					<![CDATA[kalman filter]]>
-				</Comment>
-				<BitSize>320</BitSize>
-				<BitOffs>29824</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>fbkalmanFilter</Name>
-				<Type Decoration="200134F3">ARRAY [1..3] OF kalmanFilter</Type>
-				<BitSize>2112</BitSize>
-				<BitOffs>30144</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>fbekalmanFilter</Name>
-				<Type Decoration="20015218">ARRAY [1..3] OF extendedKalmanFilter</Type>
-				<BitSize>3696</BitSize>
-				<BitOffs>32256</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name IsDefinedInLibrary="1" Library="c:\twincatlib\STANDARD.LIB">fbTON3</Name>
-				<Type Decoration="10060D24">TON</Type>
-				<BitSize>120</BitSize>
-				<BitOffs>35952</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>startTimer3</Name>
-				<Type>BOOL</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>36072</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>timer3On</Name>
-				<Type>BOOL</Type>
-				<Comment>
-					<![CDATA[heading]]>
-				</Comment>
-				<BitSize>8</BitSize>
-				<BitOffs>36080</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>A</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>36088</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>q</Name>
-				<Type>INT</Type>
-				<BitSize>16</BitSize>
-				<BitOffs>36152</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>differentX</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>36168</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>differentY</Name>
-				<Type>LREAL</Type>
-				<Comment>
-					<![CDATA[Arduino variables]]>
-				</Comment>
-				<BitSize>64</BitSize>
-				<BitOffs>36232</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>arduinoCalculate1</Name>
-				<Type Decoration="103D4282">arduinoCalculation</Type>
-				<BitSize>925200</BitSize>
-				<BitOffs>36296</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>xDistA</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>961496</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>yDistA</Name>
-				<Type>LREAL</Type>
-				<Comment>
-					<![CDATA[velocity calculation]]>
-				</Comment>
-				<BitSize>64</BitSize>
-				<BitOffs>961560</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>combinedXOld</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>961624</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>combinedYOld</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>961688</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>combinedHOld</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>961752</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>count</Name>
-				<Type>INT</Type>
-				<BitSize>16</BitSize>
-				<BitOffs>961816</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>velocityX</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>961832</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>velocityY</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>961896</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>velocityH</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>961960</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>heading_radians</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>962024</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>combinedXOld1</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>962088</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>combinedYOld1</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>962152</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>combinedHOld1</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>962216</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>velocityX1</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>962280</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>velocityY1</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>962344</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>velocityH1</Name>
-				<Type>LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>962408</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>moveA</Name>
-				<Type>BOOL</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>962472</BitOffs>
-			</SubItem>
-			<FbInfo>
-				<CodeIndex>1124</CodeIndex>
-				<InitIndex>1125</InitIndex>
-			</FbInfo>
-		</DataType>
-		<DataType>
 			<Name Decoration="300003A8" Crc32="2142733226" LastChange="2014-11-16T12:56:28">MoveState_NC</Name>
 			<Type>INT</Type>
 			<BitSize>16</BitSize>
@@ -2524,7 +2192,7 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name Decoration="101A95D8" Crc32="2470435441" LastChange="2014-12-21T12:54:18">ROS_receiveData</Name>
+			<Name Decoration="101A95D8" Crc32="3211026597" LastChange="2015-01-29T16:07:10">ROS_receiveData</Name>
 			<BitSize>5920</BitSize>
 			<SubItem>
 				<Name IsDefinedInLibrary="1" Library="c:\twincatlib\STANDARD.LIB">fbReceiveTON</Name>
@@ -2855,6 +2523,455 @@
 				<LBound>1</LBound>
 				<Elements>10</Elements>
 			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="2001017B">ARRAY [1..5] OF LREAL</Name>
+			<Type>LREAL</Type>
+			<BitSize>320</BitSize>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>5</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="200134F3">ARRAY [1..3] OF kalmanFilter</Name>
+			<Type Decoration="100B216A">kalmanFilter</Type>
+			<BitSize>2112</BitSize>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>3</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="20015218">ARRAY [1..3] OF extendedKalmanFilter</Name>
+			<Type Decoration="10143C35">extendedKalmanFilter</Type>
+			<BitSize>3696</BitSize>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>3</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="1045DB29" Crc32="1738399846" LastChange="2015-02-03T15:39:06">localization</Name>
+			<BitSize>963832</BitSize>
+			<SubItem>
+				<Name>w1</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>w2</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>w3</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>w4</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>sw1</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>256</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>sw2</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>sw3</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>384</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>sw4</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="c:\twincatlib\TcMC2.lib">encoder1</Name>
+				<Type Decoration="1006BE2E">_FBAXIS_REF</Type>
+				<BitSize>7088</BitSize>
+				<BitOffs>512</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="c:\twincatlib\TcMC2.lib">encoder2</Name>
+				<Type Decoration="1006BE2E">_FBAXIS_REF</Type>
+				<BitSize>7088</BitSize>
+				<BitOffs>7600</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="c:\twincatlib\TcMC2.lib">encoder3</Name>
+				<Type Decoration="1006BE2E">_FBAXIS_REF</Type>
+				<BitSize>7088</BitSize>
+				<BitOffs>14688</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="c:\twincatlib\TcMC2.lib">encoder4</Name>
+				<Type Decoration="1006BE2E">_FBAXIS_REF</Type>
+				<BitSize>7088</BitSize>
+				<BitOffs>21776</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>globalePosX</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>28864</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>globalePosY</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>28928</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>heading_radians1</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>28992</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>globalePosX1</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>29056</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>globalePosY1</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>29120</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>sencoderX</Name>
+				<Type Decoration="2001017B">ARRAY [1..5] OF LREAL</Type>
+				<BitSize>320</BitSize>
+				<BitOffs>29184</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>sencoderY</Name>
+				<Type Decoration="2001017B">ARRAY [1..5] OF LREAL</Type>
+				<BitSize>320</BitSize>
+				<BitOffs>29504</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>sheading</Name>
+				<Type Decoration="2001017B">ARRAY [1..5] OF LREAL</Type>
+				<BitSize>320</BitSize>
+				<BitOffs>29824</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>fbkalmanFilter</Name>
+				<Type Decoration="200134F3">ARRAY [1..3] OF kalmanFilter</Type>
+				<BitSize>2112</BitSize>
+				<BitOffs>30144</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>fbekalmanFilter</Name>
+				<Type Decoration="20015218">ARRAY [1..3] OF extendedKalmanFilter</Type>
+				<BitSize>3696</BitSize>
+				<BitOffs>32256</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="c:\twincatlib\STANDARD.LIB">fbTON3</Name>
+				<Type Decoration="10060D24">TON</Type>
+				<BitSize>120</BitSize>
+				<BitOffs>35952</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>startTimer3</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>36072</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>timer3On</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>36080</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>A</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>36088</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>q</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>36152</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>differentX</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>36168</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>differentY</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>36232</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>arduinoCalculate1</Name>
+				<Type Decoration="103D4282">arduinoCalculation</Type>
+				<BitSize>925200</BitSize>
+				<BitOffs>36296</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>xDistA</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>961496</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>yDistA</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>961560</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>combinedXOld</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>961624</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>combinedYOld</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>961688</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>combinedHOld</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>961752</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>count</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>961816</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>velocityX</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>961832</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>velocityY</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>961896</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>velocityH</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>961960</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>heading_radians</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>962024</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>combinedXOld1</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>962088</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>combinedYOld1</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>962152</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>combinedHOld1</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>962216</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>velocityX1</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>962280</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>velocityY1</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>962344</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>velocityH1</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>962408</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>moveA</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>962472</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>v4</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>962480</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>v3</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>962544</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>v</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>962608</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>v1</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>962672</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>v2</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>962736</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ow1</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>962800</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ow2</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>962864</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ow3</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>962928</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ow4</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>962992</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dx</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>963000</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dy</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>963064</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dh</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>963128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>x</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>963192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>h</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>963256</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>y</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>963320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ox</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>963384</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>oy</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>963448</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>oh</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>963512</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>hr</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>963576</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>vx</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>963640</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>vy</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>963704</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>vh</Name>
+				<Type>LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>963768</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>1124</CodeIndex>
+				<InitIndex>1125</InitIndex>
+			</FbInfo>
 		</DataType>
 		<DataType>
 			<Name Decoration="2001017C">ARRAY [1..6] OF LREAL</Name>
@@ -24023,16 +24140,7 @@
 	</Functions>
 	<Programs>
 		<Program>
-			<Name Decoration="1001C638" Crc32="2141221170" LastChange="2014-11-16T12:56:28">MainFast</Name>
-			<PrgInfo>
-				<CodeIndex>1134</CodeIndex>
-				<Symbol>
-					<Name>MainFast.fblocalization</Name>
-				</Symbol>
-			</PrgInfo>
-		</Program>
-		<Program>
-			<Name Decoration="10452E78" Crc32="2593881023" LastChange="2015-01-29T12:13:27">MAIN</Name>
+			<Name Decoration="10463115" Crc32="1749298148" LastChange="2015-02-03T11:45:22">MAIN</Name>
 			<PrgInfo>
 				<CodeIndex>1126</CodeIndex>
 				<ActionInfo>
@@ -24270,17 +24378,22 @@
 				<Symbol>
 					<Name>MAIN.t1</Name>
 				</Symbol>
+				<Symbol>
+					<Name>MAIN.Name</Name>
+				</Symbol>
+			</PrgInfo>
+		</Program>
+		<Program>
+			<Name Decoration="1001F308" Crc32="2141221170" LastChange="2014-11-16T12:56:28">MainFast</Name>
+			<PrgInfo>
+				<CodeIndex>1134</CodeIndex>
+				<Symbol>
+					<Name>MainFast.fblocalization</Name>
+				</Symbol>
 			</PrgInfo>
 		</Program>
 	</Programs>
 	<Symbols>
-		<Symbol>
-			<Name TaskPrio="2">MainFast.fblocalization</Name>
-			<Type Decoration="102FAE6F">localization</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>8453</IOffset>
-			<BitSize>962480</BitSize>
-		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">MAIN.fbPLC_Reset</Name>
 			<Type Decoration="10086A9C">PLC_Reset</Type>
@@ -24298,9 +24411,6 @@
 		<Symbol>
 			<Name TaskPrio="1">MAIN.state_NC</Name>
 			<Type Decoration="300003A8">MoveState_NC</Type>
-			<Comment>
-				<![CDATA[manual runnning]]>
-			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>2336</IOffset>
 			<BitSize>16</BitSize>
@@ -24418,12 +24528,6 @@
 		<Symbol>
 			<Name TaskPrio="1">MAIN.fbTON1</Name>
 			<Type Decoration="10060D24">TON</Type>
-			<Comment>
-				<![CDATA[
-###################
-ROS TCP/IP CONNECTION
-###################]]>
-			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>2387</IOffset>
 			<BitSize>120</BitSize>
@@ -24592,9 +24696,6 @@ ROS TCP/IP CONNECTION
 		<Symbol>
 			<Name TaskPrio="1">MAIN.sendTakt</Name>
 			<Type>LREAL</Type>
-			<Comment>
-				<![CDATA[#END# ROS variables]]>
-			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>6198</IOffset>
 			<BitSize>64</BitSize>
@@ -24651,12 +24752,6 @@ ROS TCP/IP CONNECTION
 		<Symbol>
 			<Name TaskPrio="1">MAIN.vel_current4</Name>
 			<Type>LREAL</Type>
-			<Comment>
-				<![CDATA[
-###################
-ODOMETRY
-###################]]>
-			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>6262</IOffset>
 			<BitSize>64</BitSize>
@@ -24713,9 +24808,6 @@ ODOMETRY
 		<Symbol>
 			<Name>MAIN.oldSpeedH</Name>
 			<Type>LREAL</Type>
-			<Comment>
-				<![CDATA[JOSTICK]]>
-			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>6291</IOffset>
 			<BitSize>64</BitSize>
@@ -24796,6 +24888,20 @@ ODOMETRY
 			<IGroup>16448</IGroup>
 			<IOffset>8451</IOffset>
 			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>MAIN.Name</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8453</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="2">MainFast.fblocalization</Name>
+			<Type Decoration="1045DB29">localization</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>280536</IOffset>
+			<BitSize>963832</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name Constant="1" TaskPrio="2">.MAX_CSV_ROWS</Name>
@@ -26781,42 +26887,42 @@ ODOMETRY
 			<BitSize>64</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="3">.robotPosX</Name>
+			<Name>.robotPosX</Name>
 			<Type>LREAL</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>239061</IOffset>
 			<BitSize>64</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="3">.robotPosY</Name>
+			<Name>.robotPosY</Name>
 			<Type>LREAL</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>239069</IOffset>
 			<BitSize>64</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="3">.robotPosTheta</Name>
+			<Name>.robotPosTheta</Name>
 			<Type>LREAL</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>239077</IOffset>
 			<BitSize>64</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="3">.robotVelX</Name>
+			<Name>.robotVelX</Name>
 			<Type>LREAL</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>239085</IOffset>
 			<BitSize>64</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="3">.robotVelY</Name>
+			<Name>.robotVelY</Name>
 			<Type>LREAL</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>239093</IOffset>
 			<BitSize>64</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="3">.robotVelTheta</Name>
+			<Name>.robotVelTheta</Name>
 			<Type>LREAL</Type>
 			<Comment>
 				<![CDATA[
@@ -27007,6 +27113,48 @@ ODOMETRY
 			<IGroup>16448</IGroup>
 			<IOffset>251878</IOffset>
 			<BitSize>5976</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="3">.LOCrobotPosX</Name>
+			<Type>LREAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8454</IOffset>
+			<BitSize>64</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="3">.LOCrobotPosY</Name>
+			<Type>LREAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8462</IOffset>
+			<BitSize>64</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="3">.LOCrobotPosTheta</Name>
+			<Type>LREAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8470</IOffset>
+			<BitSize>64</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="3">.LOCrobotVelX</Name>
+			<Type>LREAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8478</IOffset>
+			<BitSize>64</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="3">.LOCrobotVelY</Name>
+			<Type>LREAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8486</IOffset>
+			<BitSize>64</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="3">.LOCrobotVelTheta</Name>
+			<Type>LREAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8494</IOffset>
+			<BitSize>64</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name Constant="1" IsDefinedInLibrary="1" Static="MArea">.SystemInfo</Name>
@@ -30144,7 +30292,7 @@ ODOMETRY
 			</Parent>
 			<Parent>
 				<Name SubItem="encoder1">MainFast.fblocalization</Name>
-				<Type Decoration="102FAE6F">localization</Type>
+				<Type Decoration="1045DB29">localization</Type>
 			</Parent>
 		</VarConfig>
 		<VarConfig>
@@ -30167,7 +30315,7 @@ ODOMETRY
 			</Parent>
 			<Parent>
 				<Name SubItem="encoder1">MainFast.fblocalization</Name>
-				<Type Decoration="102FAE6F">localization</Type>
+				<Type Decoration="1045DB29">localization</Type>
 			</Parent>
 		</VarConfig>
 		<VarConfig>
@@ -30190,7 +30338,7 @@ ODOMETRY
 			</Parent>
 			<Parent>
 				<Name SubItem="encoder2">MainFast.fblocalization</Name>
-				<Type Decoration="102FAE6F">localization</Type>
+				<Type Decoration="1045DB29">localization</Type>
 			</Parent>
 		</VarConfig>
 		<VarConfig>
@@ -30213,7 +30361,7 @@ ODOMETRY
 			</Parent>
 			<Parent>
 				<Name SubItem="encoder2">MainFast.fblocalization</Name>
-				<Type Decoration="102FAE6F">localization</Type>
+				<Type Decoration="1045DB29">localization</Type>
 			</Parent>
 		</VarConfig>
 		<VarConfig>
@@ -30236,7 +30384,7 @@ ODOMETRY
 			</Parent>
 			<Parent>
 				<Name SubItem="encoder3">MainFast.fblocalization</Name>
-				<Type Decoration="102FAE6F">localization</Type>
+				<Type Decoration="1045DB29">localization</Type>
 			</Parent>
 		</VarConfig>
 		<VarConfig>
@@ -30259,7 +30407,7 @@ ODOMETRY
 			</Parent>
 			<Parent>
 				<Name SubItem="encoder3">MainFast.fblocalization</Name>
-				<Type Decoration="102FAE6F">localization</Type>
+				<Type Decoration="1045DB29">localization</Type>
 			</Parent>
 		</VarConfig>
 		<VarConfig>
@@ -30282,7 +30430,7 @@ ODOMETRY
 			</Parent>
 			<Parent>
 				<Name SubItem="encoder4">MainFast.fblocalization</Name>
-				<Type Decoration="102FAE6F">localization</Type>
+				<Type Decoration="1045DB29">localization</Type>
 			</Parent>
 		</VarConfig>
 		<VarConfig>
@@ -30305,7 +30453,7 @@ ODOMETRY
 			</Parent>
 			<Parent>
 				<Name SubItem="encoder4">MainFast.fblocalization</Name>
-				<Type Decoration="102FAE6F">localization</Type>
+				<Type Decoration="1045DB29">localization</Type>
 			</Parent>
 		</VarConfig>
 		<VarConfig>
