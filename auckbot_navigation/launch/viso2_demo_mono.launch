@@ -4,16 +4,20 @@
 	<arg name="camera" default="/kinect" /> <!-- The namespace where images are published -->
 	<!--<arg name="disparity_params" default="disparity_params.yaml"/>  Camera calibration parameters -->
 
-	<!-- Run the ROS package stereo_image_proc -->
+	<!-- Run the ROS package stereo_image_proc 
 	<group ns="$(arg camera)" >
 		<node pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc">
-	    	<!-- <rosparam file="$(arg disparity_params)"/> -->
+	    	<rosparam file="$(arg disparity_params)"/> 
 		</node>
-	</group>
+	</group> -->
 
 	<!-- Run the viso2_ros package -->
 	<node pkg="viso2_ros" type="mono_odometer" name="mono_odometer" output="screen">
+    <param name="publish_tf" value="false"/>
+    <param name="camera_height" value="0.6"/>
+    <param name="camera_pitch" value="0"/>
 		<remap from="image" to="/kinect/rgb/image_rect_color"/>
+		<remap from="odom" to="vo"/>
 	</node>
 	
 </launch>

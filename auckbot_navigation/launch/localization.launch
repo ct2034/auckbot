@@ -1,0 +1,12 @@
+<launch>
+  <!-- Kinect Driver -->
+  <include file="$(find auckbot_navigation)/launch/openni.launch" />
+
+  <!-- Visual Odometry -->
+  <include file="$(find auckbot_navigation)/launch/viso2_demo_mono.launch" />
+
+  <!-- E K F -->
+  <include file="$(find auckbot_navigation)/launch/robot_pose_ekf.launch" />
+
+  <!-- ===> odom_combined -->
+</launch>

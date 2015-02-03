@@ -1,0 +1,12 @@
+<launch>
+  <arg name="map_file" default="$(find auckbot_navigation)/maps/lab.yaml"/>
+
+  <!--- Laserscanner -->
+	<include file="$(find auckbot_navigation)/launch/hokuyo.xml" />
+    
+	<!--- Run gmapping -->
+	<node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" output="screen">
+    <param name="scan" type="string" value="scan"/>
+  </node>
+ 
+</launch>
