@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="rviz" name="rviz" type="rviz" args="-d $(find auckbot_navigation)/param/vis_odom.rviz" output="screen"/>
+</launch> 
