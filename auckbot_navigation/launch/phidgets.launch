@@ -5,4 +5,8 @@
 	<node pkg="cob_phidgets" type="phidget_sensors" name="phidgets" cwd="node" respawn="true" output="screen">
 		<rosparam file="$(arg pkg_auckbot_navigation)/param/phidgets.yaml" command="load" />
 	</node>
+
+	<!-- Running the measurement conversion -->
+	<node pkg="auckbot_analysis" type="current_msmt" name="current_msmt" respawn="true" output="screen" />
+
 </launch>
