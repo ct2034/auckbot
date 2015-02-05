@@ -31,11 +31,11 @@
 		
 	  <!-- Odometry model parameters -->
 		<param name="odom_model_type" value="omni"/>
-		<param name="odom_alpha1" value="0.2"/>
-		<param name="odom_alpha2" value="0.2"/>
-		<param name="odom_alpha3" value="0.2"/>
-		<param name="odom_alpha4" value="0.2"/>
-		<param name="odom_alpha5" value="0.2"/>
+		<param name="odom_alpha1" value="0.8"/>
+		<param name="odom_alpha2" value="0.8"/>
+		<param name="odom_alpha3" value="0.8"/>
+		<param name="odom_alpha4" value="0.8"/>
+		<param name="odom_alpha5" value="0.8"/>
 		<param name="odom_frame_id" value="/odom"/>
 		<param name="base_frame_id" value="/base_link"/>
 		<param name="global_frame_id" value="/map"/>
