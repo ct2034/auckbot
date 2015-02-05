@@ -1,5 +1,5 @@
 <launch>
-  <arg name="map_file" default="$(find auckbot_navigation)/maps/lab.yaml"/>
+  <arg name="map_file" default="$(find auckbot_navigation)/maps/lab2.yaml"/>
 
 	<!--- Lidar driver -->
 	<include file="$(find auckbot_navigation)/launch/hokuyo.launch" />
