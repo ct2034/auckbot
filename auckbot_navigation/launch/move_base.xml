@@ -6,11 +6,12 @@
     
     <!-- EDWA -->
     <param if="$(env MB_BASE_LOCAL_PLANNER_E)" name="base_local_planner" value="edwa_local_planner/EDWAPlannerROS" />
+    <rosparam if="$(env MB_BASE_LOCAL_PLANNER_E)" file="$(find auckbot_navigation)/param/base_local_planner_params_e.yaml" command="load" />
     
     <!-- DWA -->
     <param unless="$(env MB_BASE_LOCAL_PLANNER_E)" name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+    <rosparam unless="$(env MB_BASE_LOCAL_PLANNER_E)" file="$(find auckbot_navigation)/param/base_local_planner_params.yaml" command="load" />
     
-    <rosparam file="$(find auckbot_navigation)/param/base_local_planner_params.yaml" command="load" />
     <rosparam file="$(find auckbot_navigation)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find auckbot_navigation)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
     <rosparam file="$(find auckbot_navigation)/param/local_costmap_params.yaml" command="load" />
