@@ -37,13 +37,15 @@ You should have received a copy of the GNU General Public License along with Auc
 #define PI        3.14159265359
 #define NSECPSEC  1 000 000 000
 // Number of metrics float
-#define NO_MET_F  4
+#define NO_MET_F  5
 // Number of metrics string
 #define NO_MET_S  1
 // String length for name
 #define STRL_NAME 20
 // String length for description
 #define STRL_DESC 200
+// Content of succesful result message
+#define STR_SUCCESS "Goal reached."
 
 //MongoDB ----
 #define MONGO_HOST  "localhost"
@@ -173,6 +175,10 @@ metricListener::metricListener(bool _debug) {
     (char*) "Total time used");
   metrics[4] = Metric((char*) "Planner Setup", \
     (char*) "Values that are set for setup of move_base");
+  metrics[5] = Metric((char*) "Succes", \
+    (char*) "Whether the goal was reached or not");
+
+
   oldPose = tf::Transform();
 
   try{
@@ -226,6 +232,12 @@ void metricListener::resultCallback(const move_base_msgs::MoveBaseActionResult m
   float durationMillis = dura.total_milliseconds();
   metrics[3].addValue(durationMillis);
 
+  // success?
+  //ROS_INFO("result msg status text: >%s< %d", msg.status.text.c_str(), );
+  if(0==strcmp(msg.status.text.c_str(), STR_SUCCESS)) {
+    metrics[5].addValue(1.0); // was the goal reached?
+  } 
+
   // ROS_INFO("2");
   if(!debug & check>0.0) { // save to DB
     char name[STRL_NAME];
@@ -269,8 +281,9 @@ void metricListener::resultCallback(const move_base_msgs::MoveBaseActionResult m
   metrics[4].~Metric();
   metrics[4] = Metric((char*) "Planner Setup", \
     (char*) "Values that are set for setup of move_base");
+  metrics[5].toString(stringInfo);
+  ROS_INFO("%s", stringInfo);
 
-  // ROS_INFO("7");
 }
 
 void metricListener::goalCallback(const move_base_msgs::MoveBaseActionGoal msg) {
@@ -278,6 +291,7 @@ void metricListener::goalCallback(const move_base_msgs::MoveBaseActionGoal msg) 
   metrics[0].resetValueAndTime();
   metrics[1].resetValueAndTime();
   metrics[2].resetValueAndTime();
+  metrics[5].resetValueAndTime();
   char params[STRL_DESC];
   
   std::string* par_base_global_planner = new std::string();
