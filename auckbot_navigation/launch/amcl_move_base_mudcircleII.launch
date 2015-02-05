@@ -24,10 +24,4 @@
 	<!--- Run analysis -->
 	<include file="$(find auckbot_analysis)/launch/nav_analysis.launch" />
 
-	<!--- Run optimizer -->
-	<node name="path_optimizer" pkg="auckbot_navigation" type="path_optimizer">
-		<param name="~min_radius" value="1.0" />
-	</node>
-
-
 </launch>
