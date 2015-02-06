@@ -105,6 +105,9 @@ void Metric::toString(char* message) {
   else if (strcmp(sValue, "N/A") != 0 & value == 0.0) { // this is a String Metric
     sprintf(message, "Metric '%s': >%s<.\nValue: %s", name, \
       description, sValue);
+  } else if (strcmp(sValue, "N/A") == 0 & value == 0.0) {  // nothing set yet
+    sprintf(message, "Metric '%s': >%s<.\nValue: %s/%f", name, \
+      description, sValue, value);
   } else {
     ROS_ERROR("String and value set for Metric '%s'", name);
   }
@@ -173,10 +176,10 @@ metricListener::metricListener(bool _debug) {
     (char*) "Consumed motor current");
   metrics[3] = Metric((char*) "Duration [ms]", \
     (char*) "Total time used");
-  metrics[4] = Metric((char*) "Planner Setup", \
-    (char*) "Values that are set for setup of move_base");
-  metrics[5] = Metric((char*) "Succes", \
+  metrics[4] = Metric((char*) "Success", \
     (char*) "Whether the goal was reached or not");
+  metrics[5] = Metric((char*) "Planner Setup", \
+    (char*) "Values that are set for setup of move_base");
 
 
   oldPose = tf::Transform();
@@ -235,7 +238,7 @@ void metricListener::resultCallback(const move_base_msgs::MoveBaseActionResult m
   // success?
   //ROS_INFO("result msg status text: >%s< %d", msg.status.text.c_str(), );
   if(0==strcmp(msg.status.text.c_str(), STR_SUCCESS)) {
-    metrics[5].addValue(1.0); // was the goal reached?
+    metrics[4].addValue(1.0); // was the goal reached?
   } 
 
   // ROS_INFO("2");
@@ -278,11 +281,11 @@ void metricListener::resultCallback(const move_base_msgs::MoveBaseActionResult m
   ROS_INFO("%s", stringInfo);
   metrics[4].toString(stringInfo);
   ROS_INFO("%s", stringInfo);
-  metrics[4].~Metric();
-  metrics[4] = Metric((char*) "Planner Setup", \
-    (char*) "Values that are set for setup of move_base");
   metrics[5].toString(stringInfo);
   ROS_INFO("%s", stringInfo);
+  metrics[5].~Metric();
+  metrics[5] = Metric((char*) "Planner Setup", \
+    (char*) "Values that are set for setup of move_base");
 
 }
 
@@ -291,7 +294,7 @@ void metricListener::goalCallback(const move_base_msgs::MoveBaseActionGoal msg) 
   metrics[0].resetValueAndTime();
   metrics[1].resetValueAndTime();
   metrics[2].resetValueAndTime();
-  metrics[5].resetValueAndTime();
+  metrics[4].resetValueAndTime();
   char params[STRL_DESC];
   
   std::string* par_base_global_planner = new std::string();
@@ -303,7 +306,7 @@ void metricListener::goalCallback(const move_base_msgs::MoveBaseActionGoal msg) 
 
   sprintf( params, "base_global_planner: %s \nbase_local_planner: %s \n", \
     par_base_global_planner->c_str(), par_base_local_planner->c_str());
-  metrics[4].setSValue(params);
+  metrics[5].setSValue(params);
   startTime->~ptime();
   startTime = new pt::ptime(ros::Time::now().toBoost());
 
