@@ -5,8 +5,8 @@
 	<node pkg="amcl" type="amcl" name="amcl">
 	
 	  <!-- Overall filter parameters -->
-		<param name="min_particles" value="100"/>
-		<param name="max_particles" value="5000"/>
+		<param name="min_particles" value="1000"/>
+		<param name="max_particles" value="7000"/>
 		<param name="kld_err" value="0.01"/>
 		<param name="kld_z" value="0.99"/>
 		<param name="update_min_d" value="0.05"/>
@@ -31,11 +31,11 @@
 		
 	  <!-- Odometry model parameters -->
 		<param name="odom_model_type" value="omni"/>
-		<param name="odom_alpha1" value="0.8"/>
-		<param name="odom_alpha2" value="0.8"/>
-		<param name="odom_alpha3" value="0.8"/>
-		<param name="odom_alpha4" value="0.8"/>
-		<param name="odom_alpha5" value="0.8"/>
+		<param name="odom_alpha1" value="2"/>
+		<param name="odom_alpha2" value="2"/>
+		<param name="odom_alpha3" value="2"/>
+		<param name="odom_alpha4" value="2"/>
+		<param name="odom_alpha5" value="2"/>
 		<param name="odom_frame_id" value="/odom"/>
 		<param name="base_frame_id" value="/base_link"/>
 		<param name="global_frame_id" value="/map"/>
