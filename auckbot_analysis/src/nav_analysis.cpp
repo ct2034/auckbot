@@ -163,10 +163,19 @@ class metricListener {
 };
 
 // class functions
-//constructors
+/**
+ * @brief the constructor
+ * @details debrecated
+ */
 metricListener::metricListener() {
 }
 
+/**
+ * @brief the constructor
+ * @details initializes all neccessary metrics
+ * 
+ * @param _debug whether the code should be debugged or not / the data is saved to db
+ */
 metricListener::metricListener(bool _debug) {
   metrics[0] = Metric((char*) "Length [m]", \
     (char*) "The total length of the route");
@@ -197,6 +206,12 @@ metricListener::metricListener(bool _debug) {
   debug = _debug;
 }
 
+/**
+ * @brief saving a new point
+ * @details this adds a point to the respective metrics
+ * 
+ * @param transform [description]
+ */
 void metricListener::addPoint(tf::StampedTransform transform) {
   float newp[3];
   poseToXYTh(transform, newp);
@@ -224,7 +239,12 @@ void metricListener::addPoint(tf::StampedTransform transform) {
   }
 }
 
-// callbacks
+/**
+ * @brief taking care of a new result message
+ * @details saves all metrics of a finished trip
+ * 
+ * @param msg the result msg that was recieved - will be checked for success
+ */
 void metricListener::resultCallback(const move_base_msgs::MoveBaseActionResult msg) {
   // ROS_INFO("1");
   float check;
@@ -289,6 +309,12 @@ void metricListener::resultCallback(const move_base_msgs::MoveBaseActionResult m
 
 }
 
+/**
+ * @brief taking care of a new goal message
+ * @details does all the stuff that should be done at the start of a new route
+ * 
+ * @param msg the content of the goal message, coordinates are saved to metric
+ */
 void metricListener::goalCallback(const move_base_msgs::MoveBaseActionGoal msg) {
   ROS_INFO("New route ..");
   metrics[0].resetValueAndTime();
@@ -314,27 +340,61 @@ void metricListener::goalCallback(const move_base_msgs::MoveBaseActionGoal msg) 
   goal = msg.goal.target_pose.pose;
 }
 
+/**
+ * @brief taking care of a new currents message
+ * @details saves consumed current to metric
+ * 
+ * @param msg the recieved current message
+ */
 void metricListener::currentsCallback(const auckbot_gazebo::MotorCurrents msg) {
   float currents = msg.motor_1 + msg.motor_2 + msg.motor_3 + msg.motor_4;
   metrics[2].addValue( currents * metrics[2].passedTime(msg.time) );
 }
 
-
+/**
+ * @brief saves key value pair to db
+ * @details saves some data to the previously created database
+ * here for string values
+ * 
+ * @param name key of the value
+ * @param value a string value to be saved
+ */
 void metricListener::saveToDB(char* name, char* value) {
   checkCreation();
   b->append(name, value);
 }
 
+/**
+ * @brief saves key value pair to db
+ * @details saves some data to the previously created database
+ * here for float values
+ * 
+ * @param name key of the value
+ * @param value a float value to be saved
+ */
 void metricListener::saveToDB(char* name, float value) {
   checkCreation();
   b->append(name, value);
 }
 
+/**
+ * @brief adding a point to the array for the db
+ * @details addas a point to an array that is supposed to be later added to the db
+ * 
+ * @param n which array (debrecated)
+ * @param x x coordinate
+ * @param y y coordinate    
+ * @param th thete coordinate
+ */
 void metricListener::pointToDBArr(int n, float x, float y, float th){
   checkCreation();
   ab[n]->append( BSON_ARRAY( x << y << th ) );
 }
 
+/**
+ * @brief checks the creation of db
+ * @details checks wheather the data builder have been created and creates the, if not
+ */
 void metricListener::checkCreation(void){
   if (!builderCreated) { 
     ab[0] = new BSONArrayBuilder();
@@ -348,6 +408,10 @@ void metricListener::checkCreation(void){
   }
 }
 
+/**
+ * @brief finalizes data to be written
+ * @details does final data conversions and saves all data to the db
+ */
 void metricListener::finalize(void) {
   try{
     float g[3];
@@ -371,25 +435,52 @@ void metricListener::finalize(void) {
   }
 }
 
-// converting a boost time into a mongo time
+/**
+ * @brief time conversion
+ * @details converting a boost time into a mongo time
+ * 
+ * @param time the boost time
+ * @return the mongo time
+ */
 long long int metricListener::convertTime(pt::ptime time) {
   pt::ptime time_t_epoch(boost::gregorian::date(1970,1,1)); 
   pt::time_duration diff = time - time_t_epoch;
   return diff.total_milliseconds();
 }
 
+/**
+ * @brief coordinate conversion
+ * @details converts a pose to an array of the 3 relevant coordinates
+ * 
+ * @param pose to be converted
+ * @param coordsarr array for the coordinates to be written in
+ */
 void metricListener::poseToXYTh(geometry_msgs::Pose pose, float coordsarr[]){
   coordsarr[0] = pose.position.x;
   coordsarr[1] = pose.position.y;
   coordsarr[2] = tf::getYaw(pose.orientation);
 }
 
+/**
+ * @brief coordinate conversion
+ * @details converts a transormation to an array of the 3 relevant coordinates
+ * 
+ * @param transform to be converted
+ * @param coordsarr array for the coordinates to be written in
+ */
 void metricListener::poseToXYTh(tf::Transform transform, float coordsarr[]){
   coordsarr[0] = transform.getOrigin().x();
   coordsarr[1] = transform.getOrigin().y();
   coordsarr[2] = getYaw(transform.getRotation());
 }
 
+/**
+ * @brief parse a ros param
+ * @details recieves a parameter from the ros parameter server
+ * 
+ * @param name of the param
+ * @param val pointer to write the value to
+ */
 void metricListener::getPar(char* name, std::string* val){
   std::string strname(name);
   if(!nh->getParam(strname, *val)) \
