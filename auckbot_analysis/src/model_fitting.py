@@ -38,6 +38,9 @@ class ModelFitting:
         self.theta = np.array([.2, .2, .2, .2, .2, .2, .2])
         self.std = np.array([1, 100, 100, 100, 10000, 10000, 10000])
         self.Jmeanl = 1000
+        self.nonZero = np.zeros([self.Jmeanl, 7])
+        self.inputHistory = np.zeros([self.Jmeanl, 7])
+        self.inputStd = np.zeros(7)
         self.Js = [0] * self.Jmeanl
         self.learnit = 0
         pubRate = 10
@@ -176,8 +179,8 @@ class ModelFitting:
     def waitingIt(self):
         self.waiting = self.waiting+1
         if (self.waiting > self.maxWaiting) and self.messagesRecieved:
-            rospy.loginfo("max velocitys: " + str(max(self.velocitys)))
-            rospy.loginfo("max accelerations: " + str(max(self.accelerations)))
+            # rospy.loginfo("max velocitys: " + str(max(self.velocitys)))
+            # rospy.loginfo("max accelerations: " + str(max(self.accelerations)))
             rospy.logwarn("no message recieved for quite some time")
             self.messagesRecieved = False
         return self.messagesRecieved
@@ -285,15 +288,35 @@ class ModelFitting:
 
     def learnIteration(self, yin, Vin, Ain):
         # params
-        alpha = .003
+        alpha = .03
+        modularAlpha = np.ones(7)
         historyl = self.Jmeanl
 
         # data
         yarr = np.array(yin) + .01
         y = np.sum(yarr[1:5])
         # print y
-        X = np.array([1] + np.abs(Vin).tolist() + Ain) / self.std
+        X = np.array([1] + np.abs(Vin).tolist() + Ain)# / self.std
         # print ["%1.2e" % v for v in X]
+
+        self.nonZero[self.learnit % historyl, :] = np.not_equal(X, np.zeros(7)) * 1
+        for i in range(7):
+            c = float(np.count_nonzero(self.nonZero[:,i]))
+            if c:
+                modularAlpha[i] = min(self.learnit, historyl) / c
+
+        modularAlpha = alpha * modularAlpha;
+        print ["%1.2e" % v for v in modularAlpha]
+
+        self.inputHistory[self.learnit % historyl, :] = X
+        l = min(self.learnit, historyl-1)
+        
+        for i in range(7):
+            self.inputStd[i] = np.std(self.inputHistory[0:l,i])
+
+        print "Input Mean:"
+        print ["%1.2e" % v for v in self.inputStd]
+
 
         # cost
         J = ((np.dot(X, np.transpose(self.theta)) - y) ** 2) / 2
@@ -306,8 +329,11 @@ class ModelFitting:
         # print np.dot(X, np.transpose(self.theta)) - y
         grad = (np.dot(X, np.transpose(self.theta)) - y) * X
         # print ["%1.2e" % v for v in grad]
-        self.theta -= alpha * grad
+        self.theta -= modularAlpha * grad
+        print "theta:"
         print ["%1.2e" % v for v in self.theta]
+
+        print "-----"
 
         # iterate ..
         self.learnit += 1
