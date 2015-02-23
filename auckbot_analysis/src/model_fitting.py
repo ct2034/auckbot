@@ -44,6 +44,9 @@ class ModelFitting:
         self.Js = [0] * self.Jmeanl
         self.learnit = 0
         pubRate = 10
+        self.learnTimes = []
+        self.learnJs = []
+        self.learnAlphas = []
 
         rospy.Subscriber(
             self.currentTopic, 
@@ -87,8 +90,6 @@ class ModelFitting:
                 self.learnIteration(self.currents[-1], 
                     self.velocitys[-1],
                     self.accelerations[-1])
-                # self.learnIteration([.2, .3, .3, .3, .3],
-                #     [800, 800, 800], [200, 200, 200])
 
     def publisherCallback(self, event):
         if True: #(self.learnit > self.Jmeanl/5) & (self.meanJ() < .5):
@@ -183,6 +184,8 @@ class ModelFitting:
             # rospy.loginfo("max accelerations: " + str(max(self.accelerations)))
             rospy.logwarn("no message recieved for quite some time")
             self.messagesRecieved = False
+            self.fixData();
+            self.printData();
         return self.messagesRecieved
         
     def callback(self, msg):
@@ -263,8 +266,9 @@ class ModelFitting:
         c2, = plt.plot(np.array(self.times), np.array(self.currents)[:,2], '-')
         c3, = plt.plot(np.array(self.times), np.array(self.currents)[:,3], '-')
         c4, = plt.plot(np.array(self.times), np.array(self.currents)[:,4], '-')
+        plt.title('Currents [A]')
         plt.legend((c0, c1, c2, c3, c4), ('main', 'motor 1', 'motor 2', 'motor 3', 'motor 4'))
-        # velocitys
+        # accelerations
         plt.subplot(3, 1, 2)
         v0, = plt.plot(np.array(self.times), np.array(self.accelerations)[:,0], '-')
         v1, = plt.plot(np.array(self.times), np.array(self.accelerations)[:,1], '-')
@@ -276,6 +280,28 @@ class ModelFitting:
         v1, = plt.plot(np.array(self.times), np.array(self.velocitys)[:,1], '-')
         v2, = plt.plot(np.array(self.times), np.array(self.velocitys)[:,2], '-')
         plt.legend((v0, v1, v2), (r'$v_x$', r'$v_y$', r'$v_\theta$'))
+        # --------
+        # learning plots
+        lplots = plt.figure()
+        # Data
+        plt.subplot(3, 1, 1)
+        vx, = plt.plot(np.array(self.times), np.array(self.velocitys)[:,0], '-')
+        ax, = plt.plot(np.array(self.times), np.array(self.accelerations)[:,0], '-')
+        plt.title('Data')
+        plt.legend((vx, ax), (r'$v_x$', r'$\dot v_x$'))
+        # Error
+        plt.subplot(3, 1, 2)
+        j0, = plt.plot(np.array(self.learnTimes), np.array(self.learnJs), '-')
+        plt.title('Error')
+        # plt.legend((j0), (r'$J$')) 
+        # Alphas
+        plt.subplot(3, 1, 3)
+        a0, = plt.plot(np.array(self.learnTimes), np.array(self.learnAlphas)[:,0], '-')
+        a1, = plt.plot(np.array(self.learnTimes), np.array(self.learnAlphas)[:,1], '-')
+        a2, = plt.plot(np.array(self.learnTimes), np.array(self.learnAlphas)[:,4], '-')
+        plt.title('Modular Learning Rates')
+        plt.legend((a0, a1, a2), (r'$\alpha_1$', r'$\alpha_{vx}$', r'$\alpha_{\dot vx}$'))      
+
         # show ...
         plt.show()
 
@@ -285,18 +311,25 @@ class ModelFitting:
         self.velocitys = (np.array(self.velocitys)[1:l,:]).tolist()
         self.accelerations = (np.array(self.accelerations)[1:l,:]).tolist()
         self.times = (np.array(self.times)[1:l]).tolist()
+        #learning data
+        l = min(len(self.learnTimes), len(self.learnJs), len(self.learnAlphas))
+        self.learnJs = (np.array(self.learnJs)[1:l]).tolist()
+        self.learnAlphas = (np.array(self.learnAlphas)[1:l,:]).tolist()
+        self.learnTimes = (np.array(self.learnTimes)[1:l]).tolist()
+
 
     def learnIteration(self, yin, Vin, Ain):
         # params
-        alpha = .03
+        alpha = .01
         modularAlpha = np.ones(7)
         historyl = self.Jmeanl
+        self.learnTimes.append(self.now())
 
         # data
         yarr = np.array(yin) + .01
         y = np.sum(yarr[1:5])
         # print y
-        X = np.array([1] + np.abs(Vin).tolist() + Ain)# / self.std
+        X = np.array([1] + np.abs(Vin).tolist() + Ain) / self.std
         # print ["%1.2e" % v for v in X]
 
         self.nonZero[self.learnit % historyl, :] = np.not_equal(X, np.zeros(7)) * 1
@@ -305,8 +338,9 @@ class ModelFitting:
             if c:
                 modularAlpha[i] = min(self.learnit, historyl) / c
 
-        modularAlpha = alpha * modularAlpha;
+        modularAlpha = alpha * modularAlpha
         print ["%1.2e" % v for v in modularAlpha]
+        self.learnAlphas.append(modularAlpha)
 
         self.inputHistory[self.learnit % historyl, :] = X
         l = min(self.learnit, historyl-1)
@@ -314,7 +348,7 @@ class ModelFitting:
         for i in range(7):
             self.inputStd[i] = np.std(self.inputHistory[0:l,i])
 
-        print "Input Mean:"
+        print "Input Std:"
         print ["%1.2e" % v for v in self.inputStd]
 
 
@@ -322,7 +356,9 @@ class ModelFitting:
         J = ((np.dot(X, np.transpose(self.theta)) - y) ** 2) / 2
         # print J
         self.Js[self.learnit % historyl] = J
-        print self.meanJ()
+        meanJ = self.meanJ()
+        print meanJ
+        self.learnJs.append(meanJ)
 
         # grad
         # print np.dot(X, np.transpose(self.theta))
