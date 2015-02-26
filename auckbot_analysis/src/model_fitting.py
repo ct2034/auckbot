@@ -305,6 +305,22 @@ class ModelFitting:
         # show ...
         plt.show()
 
+        # -------------------------------------------------------------
+        fileName = 'figure.mat'
+        np.savetxt(fileName, 
+                   np.c_[np.array(self.times),
+                         np.array(self.velocitys)[:,0],
+                         np.array(self.accelerations)[:,0],
+                         np.array(self.learnTimes),
+                         np.array(self.learnJs),
+                         np.array(self.learnAlphas)[:,0],
+                         np.array(self.learnAlphas)[:,1],
+                         np.array(self.learnAlphas)[:,4]
+                         ]
+                   )
+        rospy.loginfo("plot data saved")
+
+
     def fixData(self):
         l = min(len(self.currents), len(self.velocitys), len(self.accelerations), len(self.times))
         self.currents = (np.array(self.currents)[1:l,:]).tolist()
