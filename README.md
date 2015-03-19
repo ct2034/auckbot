@@ -3,10 +3,10 @@ The Auckbot Simulation
 
 This packages contain the Simulation of the AuckBot. In particular:
 
-- ~~__`auckbot_control`__: Obsolete package which will be removed soon~~
 - __`auckbot_description`__: The description of the robot for simulation
 - __`auckbot_gazebo`__: Simulation settings and environment
 - __`auckbot_navigation`__: Navigation launchfiles and maps (mainly wrappers of available packages)
+-- __`planner_setup_selector.sh`__: allows to choose configurations of global and local planner using a simple UI (needs to be sourced because it uses environment variables)
 - __`auckbot_teleop`__: Little tool to manually control the robot
 
 ## Building
@@ -41,7 +41,8 @@ To use this software, follow these steps:<br/>
 ### Requirements
 
 The following package needs to be installed to run the analysis part of the code:<br/>
-`sudo apt-get install mongodb`
+- `sudo apt-get install mongodb` <br/>
+- (optional) `sudo apt-get install robomongo`
 
 ### Simulation
 
@@ -60,8 +61,10 @@ Start from control pc using `ssh -X student@192.168.0.7`:
 - **in the same terminal** start the localization and navigation: `roslaunch auckbot_navigation amcl_move_base_lab.launch`
 - for safety start as well `roslaunch auckbot_teleop keyboard_teleop.launch`
 
-Start on the control computer after setting up the connection using `ROSIP` and `ROS_MASTER_URI`
+Start on the control computer after setting up the connection using `ROS_IP` and `ROS_MASTER_URI`
 - start the visualization: `roslaunch auckbot_navigation rviz.launch`
+
+After a succesful naviagtion you can check using `robomongo` if the trip was saved to the database.
 
 
 
