@@ -20,7 +20,7 @@ To use this software, follow these steps:<br/>
   - `catkin_init_workspace`
   
 2. Download this source
-  - `git clone git@github.com:ct2034/auckbot_sim.git`
+  - `git clone git@github.com:ct2034/auckbot.git`
   
 3. Build the code
   - `cd ~/ros/auckbot_ws`
@@ -38,10 +38,30 @@ To use this software, follow these steps:<br/>
     
 ## Running
 
+### Requirements
+
+The following package needs to be installed to run the analysis part of the code:<br/>
+`sudo apt-get install mongodb`
+
+### Simulation
+
 You will need probably *(at least)* 3 terminal windows:
 - To start the simulation run `roslaunch auckbot_gazebo auckbot_mudcircle.launch`. *Note that the UI of gazebo is switched off by default. Edit the launchfile to change this.* <br/>
 - The basic navigation can be started with `roslaunch auckbot_navigation amcl_move_base.launch`. <br/>
 - A preconfigured version of rviz can be started with `roslaunch auckbot_navigation rviz.launch`. In rviz you can know set navigation goals which will initiate the movement of the robot towards these.<br/>
+
+### Robot Tests
+
+Start on the robot:
+- the connection to TwinCat and necessary hardware drivers: `roslaunch auckbot_bringup auckbot.launch` <br/>
+
+Start from control pc using `ssh -X student@192.168.0.7`:
+- select navigation config using: `source src/auckbot/auckbot_navigation/launch/planner_setup_selector.sh`
+- **in the same terminal** start the localization and navigation: `roslaunch auckbot_navigation amcl_move_base_lab.launch`
+- for safety start as well `roslaunch auckbot_teleop keyboard_teleop.launch`
+
+Start on the control computer after setting up the connection using `ROSIP` and `ROS_MASTER_URI`
+- start the visualization: `roslaunch auckbot_navigation rviz.launch`
 
 
 
