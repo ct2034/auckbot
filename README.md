@@ -6,7 +6,8 @@ This packages contain the Simulation of the AuckBot. In particular:
 - __`auckbot_description`__: The description of the robot for simulation
 - __`auckbot_gazebo`__: Simulation settings and environment
 - __`auckbot_navigation`__: Navigation launchfiles and maps (mainly wrappers of available packages)
--- __`planner_setup_selector.sh`__: allows to choose configurations of global and local planner using a simple UI (needs to be sourced because it uses environment variables)
+  - __`planner_setup_selector.sh`__: allows to choose configurations of global and local planner using a simple UI (needs to be sourced because it uses environment variables)
+  - __`amcl_move_base_lab.launch`__: starts the navigation for an specific environment (here *lab*)
 - __`auckbot_teleop`__: Little tool to manually control the robot
 
 ## Building
