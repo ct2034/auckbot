@@ -49,10 +49,9 @@ To use this software, follow these steps:<br/>
 ### Requirements
 
 The following package needs to be installed to run the analysis part of the code:<br/>
-- `sudo apt-get install mongodb`
-- `sudo apt-get install libgcal-dev`
-
-- (optional) `sudo apt-get install robomongo`
+- `sudo apt-get install mongodb`<br/>
+- `sudo apt-get install libgcal-dev`<br/>
+- (optional) `sudo apt-get install robomongo`<br/>
 
 ### Simulation
 
