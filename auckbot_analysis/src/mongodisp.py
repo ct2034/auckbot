@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import pymongo as m
 import datetime
 # import matplotlib as mp
@@ -67,7 +69,7 @@ client = m.MongoClient('mongodb://localhost:27017/')
 db = client.nav_analysis
 collection = db['trips']
 
-datgroupnr = 4
+datgroupnr = 5
 
 if datgroupnr is 1:
 	datagroups = {
@@ -195,6 +197,21 @@ if datgroupnr is 4:
 			{"$and": [
 				{"start_time": {"$gt": datetime.datetime(2015, 2, 10, 11, 50)}},
 				{"start_time": {"$lt": datetime.datetime(2015, 2, 11)}},
+				{"Length [m]": {"$gt": 5}},
+				{"Planner Setup": {"$regex" : "dwa_local_planner/DWAPlannerROS"}},
+		    {"Success": {"$gt": 0}}
+			]},
+  }
+if datgroupnr is 5:
+	datagroups = {
+		"EDWA": # lower traj_scale, lower self_scale
+			{"$and": [
+				{"Length [m]": {"$gt": 5}},
+				{"Planner Setup": {"$regex" : "edwa_local_planner/EDWAPlannerROS"}},
+		    {"Success": {"$gt": 0}}
+			]},
+		"DWA":  #new goals / plan
+			{"$and": [
 				{"Length [m]": {"$gt": 5}},
 				{"Planner Setup": {"$regex" : "dwa_local_planner/DWAPlannerROS"}},
 		    {"Success": {"$gt": 0}}
