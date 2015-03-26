@@ -16,6 +16,14 @@ This packages contain the Simulation of the AuckBot. In particular:
 - __`auckbot_teleop`__: Little tool to manually control the robot
   - __`keyboard_teleop.launch`__: enables you to control the robot using your keyboard
 
+## Requirements
+
+The following packages need to be installed to run and build the code:<br/>
+- `sudo apt-get install mongodb`<br/>
+- `sudo apt-get install libgcal-dev`<br/>
+- `sudo apt-get install libncurses5-dev`<br/>
+- (optional) `sudo apt-get install robomongo`<br/>
+
 ## Building
 
 To use this software, follow these steps:<br/>
@@ -45,14 +53,6 @@ To use this software, follow these steps:<br/>
     - The folders rtabmaplib and rtabmap should both be located in the src folder of your workspace
     
 ## Running
-
-### Requirements
-
-The following packages need to be installed to run the analysis part of the code:<br/>
-- `sudo apt-get install mongodb`<br/>
-- `sudo apt-get install libgcal-dev`<br/>
-- `sudo apt-get install libncurses5-dev`<br/>
-- (optional) `sudo apt-get install robomongo`<br/>
 
 ### Simulation
 
