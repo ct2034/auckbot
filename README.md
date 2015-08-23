@@ -24,6 +24,10 @@ The following packages need to be installed to run and build the code:<br/>
 - `sudo apt-get install libncurses5-dev`<br/>
 - (optional) `sudo apt-get install robomongo`<br/>
 
+The following ros packages are needed as well:<br/>
+- `depthimage_to_laserscan`<br/>
+- `cob-phidgets`<br/>
+
 ## Building
 
 To use this software, follow these steps:<br/>
