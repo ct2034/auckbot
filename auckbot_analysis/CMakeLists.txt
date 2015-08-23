@@ -32,7 +32,7 @@ generate_messages(
 
 catkin_package(
    CATKIN_DEPENDS auckbot_gazebo geometry_msgs move_base_msgs roscpp tf
-   DEPENDS Boost MongoClient
+   DEPENDS Boost MongoClient ssl crypto
 )
 
 MESSAGE( ">> MongoClient_INCLUDE_DIR: " ${MongoClient_INCLUDE_DIR} )
@@ -55,6 +55,8 @@ target_link_libraries(nav_analysis
   ${catkin_LIBRARIES}
   ${MongoClient_LIBRARIES} 
   ${Boost_LIBRARIES}
+  ssl
+  crypto
 )
 
 target_link_libraries(automatron

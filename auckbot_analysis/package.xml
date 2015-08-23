@@ -49,6 +49,8 @@
   <build_depend>mongodb</build_depend>
   <build_depend>mongodb-dev</build_depend>
   <build_depend>MongoClient</build_depend>
+  <build_depend>ssl</build_depend>
+  <build_depend>Crypto</build_depend>
 
   <run_depend>auckbot_gazebo</run_depend>
   <run_depend>geometry_msgs</run_depend>
