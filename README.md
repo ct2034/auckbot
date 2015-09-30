@@ -19,10 +19,8 @@ This packages contain the Simulation of the AuckBot. In particular:
 ## Requirements
 
 The following packages need to be installed to run and build the code:<br/>
-- `sudo apt-get install mongodb`<br/>
-- `sudo apt-get install libgcal-dev`<br/>
-- `sudo apt-get install libncurses5-dev`<br/>
-- (optional) `sudo apt-get install robomongo`<br/>
+- `sudo apt-get install -y mongodb libgcal-dev libncurses5-dev`<br/>
+- (optional) `sudo apt-get install -y robomongo`<br/>
 
 The following ros packages are needed as well:<br/>
 - `depthimage_to_laserscan`<br/>
