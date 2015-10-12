@@ -21,7 +21,7 @@
 	<!--- Run move base -->
 	<include file="$(find auckbot_navigation)/launch/move_base.xml" />
 
-	<!--- Run analysis 
-	<include file="$(find auckbot_analysis)/launch/nav_analysis.launch" />-->
+	<!--- Run analysis -->
+	<include file="$(find auckbot_analysis)/launch/nav_analysis.launch" />
 
 </launch>
