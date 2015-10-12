@@ -47,3 +47,12 @@ EDWAPlannerROS:
   scaling_speed: 0.25
   sim_granularity: 0.025
   trans_stopped_vel: 0.1
+
+# Energy Model
+  theta_0: 1
+  theta_1: .3
+  theta_2: .4
+  theta_3: .4
+  theta_4: .001
+  theta_5: .001
+  theta_6: .003
