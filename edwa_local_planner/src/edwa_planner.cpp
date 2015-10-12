@@ -226,6 +226,8 @@ namespace edwa_local_planner {
 
   bool EDWAPlanner::setPlan(const std::vector<geometry_msgs::PoseStamped>& orig_global_plan) {
     oscillation_costs_.resetOscillationFlags();
+    energy_costs_.setRoute(orig_global_plan);
+    ROS_INFO("passed plan to cost function");
     return planner_util_->setPlan(orig_global_plan);
   }
 
