@@ -3,14 +3,18 @@ install:
   - wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo apt-key add -
   - sudo apt-get update
   - sudo apt-get install ros-hydro-desktop
+  - sudo apt-get install -y $(cat requirements_apt.txt | tr "\n" " ")
+  
   - source /opt/ros/hydro/setup.bash
 
   - mkdir -p ~/ros/auckbot_ws/src
   - cd ~/ros/auckbot_ws/src
   - catkin_init_workspace
 
+  - cp -r ~/auckbot .
+  - git clone git@github.com:ct2034/navigation.git
 
 script:
   - cd ~/ros/auckbot_ws
+  - catkin_make --pkg auckbot_gazebo
   - catkin_make
-  - source devel/setup.bash
