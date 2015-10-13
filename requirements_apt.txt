@@ -1,0 +1,5 @@
+mongodb
+libgcal-dev
+libncurses5-dev
+ros-hydro-depthimage-to-laserscan
+ros-hydro-cob-phidgets
