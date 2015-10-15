@@ -1,0 +1,24 @@
+<launch>
+  <arg name="map_file" default="$(find auckbot_navigation)/maps/mudcircle.yaml"/>
+
+  <!-- TF FRAMES 
+  <node pkg="tf" type="static_transform_publisher" name="base_to_camera_tf" 
+    args="0.6 0.0 0.39 0.0 0.0 0.0 /base_link /kinect_link 100" / -->
+   
+  <!--- kinect -> laser 
+	<node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" > 
+    <remap from="image" to="/kinect/depth/image_raw"/>
+    <remap from="camera_info" to="/kinect/depth/image_raw"/>
+    <param name="output_frame_id" type="string" value="kinect_link"/>
+  </node -->
+    
+	<!--- Run map_server -->
+	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)"/>
+
+	<!--- Run AMCL -->
+	<include file="$(find auckbot_navigation)/launch/amcl_node.xml" />
+	
+	<!--- Run move base -->
+	<include file="$(find auckbot_navigation)/launch/move_base.xml" />
+
+</launch>
